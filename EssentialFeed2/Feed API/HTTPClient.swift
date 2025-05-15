@@ -7,6 +7,14 @@
 
 import Foundation
 
+public protocol HTTPSession {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, (any Error)?) -> Void) -> HTTPSessionTask
+}
+
+public protocol HTTPSessionTask {
+    func resume()
+}
+
 public enum HTTPClientResult {
     case success(Data, HTTPURLResponse)
     case failure(Error)
