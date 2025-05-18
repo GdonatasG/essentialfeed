@@ -9,6 +9,15 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentialFeed2.xcodeproj",
+          "identifier" : "E29C4C762DCE4A9000AE819C",
+          "name" : "EssentialFeed2"
+        }
+      ]
+    },
     "testExecutionOrdering" : "random"
   },
   "testTargets" : [
