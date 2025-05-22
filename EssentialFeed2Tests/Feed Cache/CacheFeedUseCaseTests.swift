@@ -36,7 +36,7 @@ class LocalFeedLoader {
     }
 }
 
-class CacheFeedUseCase: XCTestCase {
+class CacheFeedUseCaseTests: XCTestCase {
     func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
         
