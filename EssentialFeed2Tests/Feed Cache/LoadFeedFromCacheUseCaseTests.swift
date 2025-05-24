@@ -35,9 +35,9 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         }
         
         store.completeRetrieval(with: retrievalError)
+        wait(for: [exp], timeout: 1.0)
         
         XCTAssertEqual(receivedError as NSError?, retrievalError)
-        wait(for: [exp], timeout: 1.0)
     }
     
     // MARK: - Helpers
