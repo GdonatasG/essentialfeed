@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class LocalFeedLoader {
+public final class LocalFeedLoader: FeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
     private let calendar: Calendar = Calendar(identifier: .gregorian)
@@ -69,6 +69,7 @@ extension LocalFeedLoader {
         }
     }
 }
+
 extension LocalFeedLoader {
     public func validateCache() {
         store.retrieve { [weak self] result in
