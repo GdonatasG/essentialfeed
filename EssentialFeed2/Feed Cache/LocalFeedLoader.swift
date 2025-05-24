@@ -45,10 +45,15 @@ public final class LocalFeedLoader {
             case .empty:
                 completion(.success([]))
             case let .failure(error):
-                self.store.deleteCachedFeed { _ in }
                 completion(.failure(error))
             }
         }
+    }
+    
+    public func validateCache() {
+        store.retrieve { _ in }
+        self.store.deleteCachedFeed { _ in }
+
     }
     
     private var maxCacheAgeInDays: Int {
