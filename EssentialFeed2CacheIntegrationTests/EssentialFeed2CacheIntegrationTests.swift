@@ -29,16 +29,11 @@ final class EssentialFeed2CacheIntegrationTests: XCTestCase {
     }
     
     func test_load_deliversItemsSavedOnASeparateInstance() {
-        let sutTopPerformSave = makeSUT()
+        let sutToPerformSave = makeSUT()
         let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
         
-        let saveExp = expectation(description: "Wait for save completion")
-        sutTopPerformSave.save(feed) { saveError in
-            XCTAssertNil(saveError)
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(feed, with: sutToPerformSave)
         
         expect(sutToPerformLoad, toCompleteWithResult: .success(feed))
     }
@@ -50,19 +45,8 @@ final class EssentialFeed2CacheIntegrationTests: XCTestCase {
         let firstFeed = uniqueImageFeed().models
         let latestFeed = uniqueImageFeed().models
         
-        let saveExp1 = expectation(description: "Wait for first save completion")
-        sutToPerformFirstSave.save(firstFeed) { saveError in
-            XCTAssertNil(saveError, "Expected to save feed successfully")
-            saveExp1.fulfill()
-        }
-        wait(for: [saveExp1], timeout: 1.0)
-        
-        let saveExp2 = expectation(description: "Wait for latest save completion")
-        sutToPerformLastSave.save(latestFeed) { saveError in
-            XCTAssertNil(saveError, "Expected to save feed successfully")
-            saveExp2.fulfill()
-        }
-        wait(for: [saveExp2], timeout: 1.0)
+        let _ = save(firstFeed, with: sutToPerformFirstSave)
+        let _ = save(latestFeed, with: sutToPerformLastSave)
         
         expect(sutToPerformLoad, toCompleteWithResult: .success(latestFeed))
     }
@@ -93,6 +77,18 @@ final class EssentialFeed2CacheIntegrationTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func save(_ feed: [FeedImage], with sut: LocalFeedLoader) -> Error? {
+        let exp = expectation(description: "Wait for save completion")
+        var error: NSError?
+        sut.save(feed) { saveError in
+            error = saveError as? NSError
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        
+        return error
     }
     
     private func setupEmptyStoreState() {
