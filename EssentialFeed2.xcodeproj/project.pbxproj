@@ -62,6 +62,13 @@
 			);
 			target = E29C4C802DCE4A9100AE819C /* EssentialFeed2Tests */;
 		};
+		E207F3E52DEB59D7004A2081 /* Exceptions for "EssentialFeed2Tests" folder in "EssentialFeed2CacheIntegrationTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Helpers/XCTestCaseMemoryLeakTracking.swift,
+			);
+			target = E207F3D82DEB563F004A2081 /* EssentialFeed2CacheIntegrationTests */;
+		};
 		E29C4C892DCE4A9100AE819C /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
@@ -88,6 +95,9 @@
 		};
 		E29C4C852DCE4A9100AE819C /* EssentialFeed2Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E207F3E52DEB59D7004A2081 /* Exceptions for "EssentialFeed2Tests" folder in "EssentialFeed2CacheIntegrationTests" target */,
+			);
 			path = EssentialFeed2Tests;
 			sourceTree = "<group>";
 		};
