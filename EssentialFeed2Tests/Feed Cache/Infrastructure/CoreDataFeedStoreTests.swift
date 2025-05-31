@@ -42,11 +42,25 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_insert_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
+        let feed = uniqueImageFeed().local
+        let timestamp = Date()
         
+        let insertionError = insert((feed, timestamp), to: sut)
+        
+        XCTAssertNil(insertionError)
     }
     
     func test_insert_deliversNoErrorOnNonEmptyCache() {
+        let sut = makeSUT()
         
+        insert((uniqueImageFeed().local, Date()), to: sut)
+        
+        let latestFeed = uniqueImageFeed().local
+        let latestTimestamp = Date()
+        let latestInsertionError = insert((latestFeed, latestTimestamp), to: sut)
+        
+        XCTAssertNil(latestInsertionError, "Expected to override cache successfully")
     }
     
     func test_insert_overridesPreviouslyInsertedCacheValues() {
@@ -64,7 +78,9 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
         
+        expect(sut, toRetrieve: .empty)
     }
     
     func test_delete_hasNoSideEffectsOnEmptyCache() {
@@ -77,10 +93,6 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_delete_deliversNoErrorOnNonEmptyCache() {
-        
-    }
-    
-    func test_delete_deletesNonEmptyCache() {
         let sut = makeSUT()
         
         insert((uniqueImageFeed().local, Date()), to: sut)
@@ -88,6 +100,14 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         let deletionError = deleteCache(from: sut)
         
         XCTAssertNil(deletionError)
+    }
+    
+    func test_delete_deletesNonEmptyCache() {
+        let sut = makeSUT()
+        
+        insert((uniqueImageFeed().local, Date()), to: sut)
+        let _ = deleteCache(from: sut)
+        
         expect(sut, toRetrieve: .empty)
     }
     
