@@ -33,7 +33,7 @@ final class EssentialFeed2CacheIntegrationTests: XCTestCase {
         let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
         
-        save(feed, with: sutToPerformSave)
+        let _ = save(feed, with: sutToPerformSave)
         
         expect(sutToPerformLoad, toCompleteWithResult: .success(feed))
     }
@@ -62,7 +62,7 @@ final class EssentialFeed2CacheIntegrationTests: XCTestCase {
         return sut
     }
     
-    private func expect(_ sut: FeedLoader, toCompleteWithResult expectedResult: LoadFeedResult, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: FeedLoader, toCompleteWithResult expectedResult: FeedLoader.Result, file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         sut.load { receivedResult in
             switch (receivedResult, expectedResult) {
