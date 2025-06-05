@@ -5,6 +5,12 @@
 //  Created by Donatas Zitkus on 05/06/2025.
 //
 
+struct FeedImageViewModel {
+    let description: String?
+    let location: String?
+    let imageName: String
+}
+
 import UIKit
 
 final class FeedViewController: UITableViewController {
