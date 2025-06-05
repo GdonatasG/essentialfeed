@@ -1,0 +1,15 @@
+//
+//  FeedImageCell.swift
+//  Prototype
+//
+//  Created by Donatas Zitkus on 05/06/2025.
+//
+
+import UIKit
+
+final class FeedImageCell: UITableViewCell {
+    @IBOutlet private(set) var locationContainer: UIView!
+    @IBOutlet private(set) var locationLabel: UILabel!
+    @IBOutlet private(set) var feedImageView: UIView!
+    @IBOutlet private(set) var descriptionLabel: UILabel!
+}
