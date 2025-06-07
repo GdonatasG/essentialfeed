@@ -99,14 +99,14 @@
 			path = EssentialFeed2CacheIntegrationTests;
 			sourceTree = "<group>";
 		};
-		E252C6472DF4733E00E49926 /* EssentialFeediOS */ = {
+		E252C6472DF4733E00E49926 /* EssentialFeed2iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EssentialFeediOS;
+			path = EssentialFeed2iOS;
 			sourceTree = "<group>";
 		};
-		E252C6532DF4733E00E49926 /* EssentialFeediOSTests */ = {
+		E252C6532DF4733E00E49926 /* EssentialFeed2iOSTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EssentialFeediOSTests;
+			path = EssentialFeed2iOSTests;
 			sourceTree = "<group>";
 		};
 		E29C4C792DCE4A9000AE819C /* EssentialFeed2 */ = {
@@ -198,8 +198,8 @@
 				E29C4C852DCE4A9100AE819C /* EssentialFeed2Tests */,
 				E29C4CC72DD9B44E00AE819C /* EssentialFeed2APIEndToEndTests */,
 				E207F3DA2DEB563F004A2081 /* EssentialFeed2CacheIntegrationTests */,
-				E252C6472DF4733E00E49926 /* EssentialFeediOS */,
-				E252C6532DF4733E00E49926 /* EssentialFeediOSTests */,
+				E252C6472DF4733E00E49926 /* EssentialFeed2iOS */,
+				E252C6532DF4733E00E49926 /* EssentialFeed2iOSTests */,
 				E29C4C782DCE4A9000AE819C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E252C6472DF4733E00E49926 /* EssentialFeediOS */,
+				E252C6472DF4733E00E49926 /* EssentialFeed2iOS */,
 			);
 			name = EssentialFeediOS;
 			packageProductDependencies = (
@@ -297,7 +297,7 @@
 				E252C6522DF4733E00E49926 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				E252C6532DF4733E00E49926 /* EssentialFeediOSTests */,
+				E252C6532DF4733E00E49926 /* EssentialFeed2iOSTests */,
 			);
 			name = EssentialFeediOSTests;
 			packageProductDependencies = (
