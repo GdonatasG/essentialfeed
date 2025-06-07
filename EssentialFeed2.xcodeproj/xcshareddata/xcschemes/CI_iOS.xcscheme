@@ -21,6 +21,20 @@
                ReferencedContainer = "container:EssentialFeed2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E24DF2B22DF4A4F900D2573A"
+               BuildableName = "EssentialFeed2iOSTests.xctest"
+               BlueprintName = "EssentialFeed2iOSTests"
+               ReferencedContainer = "container:EssentialFeed2.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -34,7 +48,7 @@
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:EssentialFeediOSTests.xctestplan">
+            reference = "container:EssentialFeed2iOSTests.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>

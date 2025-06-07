@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E252C6452DF4733E00E49926"
-               BuildableName = "EssentialFeediOS.framework"
-               BlueprintName = "EssentialFeediOS"
+               BlueprintIdentifier = "E24DF2A92DF4A4F900D2573A"
+               BuildableName = "EssentialFeed2iOS.framework"
+               BlueprintName = "EssentialFeed2iOS"
                ReferencedContainer = "container:EssentialFeed2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,6 +29,19 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E24DF2B22DF4A4F900D2573A"
+               BuildableName = "EssentialFeed2iOSTests.xctest"
+               BlueprintName = "EssentialFeed2iOSTests"
+               ReferencedContainer = "container:EssentialFeed2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -50,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E252C6452DF4733E00E49926"
-            BuildableName = "EssentialFeediOS.framework"
-            BlueprintName = "EssentialFeediOS"
+            BlueprintIdentifier = "E24DF2A92DF4A4F900D2573A"
+            BuildableName = "EssentialFeed2iOS.framework"
+            BlueprintName = "EssentialFeed2iOS"
             ReferencedContainer = "container:EssentialFeed2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
