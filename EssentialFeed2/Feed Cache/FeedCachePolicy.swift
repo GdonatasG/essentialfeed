@@ -8,7 +8,7 @@
 import Foundation
 
 internal final class FeedCachePolicy {
-    private init() {}
+    private init() {} 
     
     private static let calendar: Calendar = Calendar(identifier: .gregorian)
     

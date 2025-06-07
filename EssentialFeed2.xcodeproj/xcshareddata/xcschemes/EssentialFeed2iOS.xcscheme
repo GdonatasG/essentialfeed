@@ -6,27 +6,38 @@
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E24DF2A92DF4A4F900D2573A"
+               BuildableName = "EssentialFeed2iOS.framework"
+               BlueprintName = "EssentialFeed2iOS"
+               ReferencedContainer = "container:EssentialFeed2.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:EssentialFeed2APIEndToEndTests.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E29C4CC52DD9B44E00AE819C"
-               BuildableName = "EssentialFeed2APIEndToEndTests.xctest"
-               BlueprintName = "EssentialFeed2APIEndToEndTests"
+               BlueprintIdentifier = "E24DF2B22DF4A4F900D2573A"
+               BuildableName = "EssentialFeed2iOSTests.xctest"
+               BlueprintName = "EssentialFeed2iOSTests"
                ReferencedContainer = "container:EssentialFeed2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -49,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E24DF2A92DF4A4F900D2573A"
+            BuildableName = "EssentialFeed2iOS.framework"
+            BlueprintName = "EssentialFeed2iOS"
+            ReferencedContainer = "container:EssentialFeed2.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -14,7 +14,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:EssentialFeed2APIEndToEndTests.xctestplan"
+            reference = "container:EssentialFeed2iOSTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -24,9 +24,9 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E29C4CC52DD9B44E00AE819C"
-               BuildableName = "EssentialFeed2APIEndToEndTests.xctest"
-               BlueprintName = "EssentialFeed2APIEndToEndTests"
+               BlueprintIdentifier = "E24DF2B22DF4A4F900D2573A"
+               BuildableName = "EssentialFeed2iOSTests.xctest"
+               BlueprintName = "EssentialFeed2iOSTests"
                ReferencedContainer = "container:EssentialFeed2.xcodeproj">
             </BuildableReference>
          </TestableReference>
