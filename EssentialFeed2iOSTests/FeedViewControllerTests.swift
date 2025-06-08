@@ -34,10 +34,10 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.isShowingPullToRefreshIndicator, "Expected no pull to refresh indicator once view is loaded")
         
         loader.completeFeedLoading(at: 0)
-        XCTAssertFalse(sut.isShowingMainLoadingIndicator, "Expected no loading indicator once loading is completed")
+        XCTAssertFalse(sut.isShowingMainLoadingIndicator, "Expected no main loading indicator once loading is completed")
         
         sut.simulateUserInitiatedFeedReload()
-        XCTAssertFalse(sut.isShowingMainLoadingIndicator, "Expected no loading indicator once user initiates a reload")
+        XCTAssertFalse(sut.isShowingMainLoadingIndicator, "Expected no main loading indicator once user initiates a reload")
     }
     
     func test_pullToRefreshIndicator_isShownCorrectly() {
