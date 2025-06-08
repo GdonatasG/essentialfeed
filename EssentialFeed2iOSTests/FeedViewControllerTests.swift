@@ -10,7 +10,7 @@ import UIKit
 import EssentialFeed2
 
 final class FeedViewController: UITableViewController {
-    let loadingIndicator = UIActivityIndicatorView(style: .large)
+    let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
     private var loader: FeedLoader?
     
     convenience init(loader: FeedLoader) {
@@ -21,17 +21,17 @@ final class FeedViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingIndicator.center = view.center
-        view.addSubview(loadingIndicator)
+        mainLoadingIndicator.center = view.center
+        view.addSubview(mainLoadingIndicator)
         
         let control = UIRefreshControl()
         refreshControl = control
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        loadingIndicator.startAnimating()
+        mainLoadingIndicator.startAnimating()
         load { [weak self] in
             guard let self = self else { return }
-            self.loadingIndicator.stopAnimating()
+            self.mainLoadingIndicator.stopAnimating()
         }
     }
     
@@ -77,21 +77,21 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 3)
     }
     
-    func test_viewDidLoad_showsLoadingIndicator() {
+    func test_viewDidLoad_showsMainLoadingIndicator() {
         let (sut, _) = makeSUT()
             
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.loadingIndicator.isAnimating, true)
+        XCTAssertEqual(sut.mainLoadingIndicator.isAnimating, true)
     }
     
-    func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_viewDidLoad_hidesMainLoadingIndicatorOnLoaderCompletion() {
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
         loader.completeFeedLoading()
         
-        XCTAssertEqual(sut.loadingIndicator.isAnimating, false)
+        XCTAssertEqual(sut.mainLoadingIndicator.isAnimating, false)
     }
     
     func test_viewDidLoad_doesNotShowPullToRefreshIndicator() {
