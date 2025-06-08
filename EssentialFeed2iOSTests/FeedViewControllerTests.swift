@@ -45,11 +45,8 @@ final class FeedViewController: UITableViewController {
     
     @objc private func load(completion: @escaping () -> Void) {
         loader?.load { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                completion()
-            }
+            guard let _ = self else { return }
+            completion()
         }
     }
 }
@@ -88,6 +85,15 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.loadingIndicator.isAnimating, true)
     }
     
+    func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading()
+        
+        XCTAssertEqual(sut.loadingIndicator.isAnimating, false)
+    }
+    
     func test_viewDidLoad_doesNotShowPullToRefreshIndicator() {
         let (sut, _) = makeSUT()
             
@@ -106,10 +112,17 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     class LoaderSpy: FeedLoader {
-        private(set) var loadCallCount: Int = 0
+        private var completions = [(FeedLoader.Result) -> Void]()
+        var loadCallCount: Int {
+            return completions.count
+        }
         
         func load(completion: @escaping (FeedLoader.Result) -> Void) {
-            loadCallCount += 1
+            completions.append(completion)
+        }
+        
+        func completeFeedLoading() {
+            completions[0](.success([]))
         }
     }
 }
