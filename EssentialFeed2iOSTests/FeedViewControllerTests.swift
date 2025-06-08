@@ -10,6 +10,7 @@ import UIKit
 import EssentialFeed2
 
 final class FeedViewController: UITableViewController {
+    let loadingIndicator = UIActivityIndicatorView(style: .large)
     private var loader: FeedLoader?
     
     convenience init(loader: FeedLoader) {
@@ -20,13 +21,36 @@ final class FeedViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        load()
+        loadingIndicator.center = view.center
+        view.addSubview(loadingIndicator)
+        
+        let control = UIRefreshControl()
+        refreshControl = control
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        loadingIndicator.startAnimating()
+        load { [weak self] in
+            guard let self = self else { return }
+            self.loadingIndicator.stopAnimating()
+        }
     }
     
-    @objc private func load() {
-        loader?.load { _ in }
+    @objc private func refresh(){
+        refreshControl?.beginRefreshing()
+        load { [weak self] in
+            guard let self = self else { return }
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    @objc private func load(completion: @escaping () -> Void) {
+        loader?.load { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
     }
 }
 
@@ -54,6 +78,22 @@ final class FeedViewControllerTests: XCTestCase {
         
         sut.refreshControl?.simulatePullToRefresh()
         XCTAssertEqual(loader.loadCallCount, 3)
+    }
+    
+    func test_viewDidLoad_showsLoadingIndicator() {
+        let (sut, _) = makeSUT()
+            
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.loadingIndicator.isAnimating, true)
+    }
+    
+    func test_viewDidLoad_doesNotShowPullToRefreshIndicator() {
+        let (sut, _) = makeSUT()
+            
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
     // MARK: - Helpers
