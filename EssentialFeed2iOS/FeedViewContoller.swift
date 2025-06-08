@@ -10,7 +10,7 @@ import EssentialFeed2
 import UIKit
 
 public final class FeedViewController: UITableViewController {
-    let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
+    public let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
     private var loader: FeedLoader?
     
     public convenience init(loader: FeedLoader) {
