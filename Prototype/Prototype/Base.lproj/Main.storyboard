@@ -111,6 +111,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="ZgA-Da-AOo" id="2Zv-5L-0Kp"/>
+                                    <outlet property="feedImageContainer" destination="ji2-wl-6GU" id="bUz-hC-iqz"/>
                                     <outlet property="feedImageView" destination="Gvg-Ue-rIi" id="xvg-80-cO4"/>
                                     <outlet property="locationContainer" destination="ufz-yX-lop" id="e9H-8s-T2N"/>
                                     <outlet property="locationLabel" destination="vgk-K3-Gz3" id="cji-vU-g86"/>
@@ -123,6 +124,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Feed" id="Kam-7X-mi4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ATi-EI-ulq">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                        <connections>
+                            <action selector="refresh" destination="jCu-PX-mSt" eventType="valueChanged" id="c6J-nl-PoI"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTF-KO-SyY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +161,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
