@@ -85,7 +85,7 @@ final class FeedViewControllerTests: XCTestCase {
 //        
 //        sut.simulateUserInitiatedFeedReload()
 //
-//        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+//        XCTAssertEqual(sut.isShowingPullToRefreshIndicator, true)
     }
     
     func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
@@ -96,7 +96,7 @@ final class FeedViewControllerTests: XCTestCase {
 //        sut.simulateUserInitiatedFeedReload()
 //        loader.completeFeedLoading()
 //
-//        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+//        XCTAssertEqual(sut.isShowingPullToRefreshIndicator, false)
     }
     
     func test_viewDidLoad_showsMainLoadingIndicator() {
@@ -104,7 +104,7 @@ final class FeedViewControllerTests: XCTestCase {
             
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.mainLoadingIndicator.isAnimating, true)
+        XCTAssertEqual(sut.isShowingMainLoadingIndicator, true)
     }
     
     func test_viewDidLoad_hidesMainLoadingIndicatorOnLoaderCompletion() {
@@ -113,7 +113,7 @@ final class FeedViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         loader.completeFeedLoading()
         
-        XCTAssertEqual(sut.mainLoadingIndicator.isAnimating, false)
+        XCTAssertEqual(sut.isShowingMainLoadingIndicator, false)
     }
     
     func test_viewDidLoad_doesNotShowPullToRefreshIndicator() {
@@ -121,7 +121,7 @@ final class FeedViewControllerTests: XCTestCase {
             
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertEqual(sut.isShowingPullToRefreshIndicator, false)
     }
     
     // MARK: - Helpers
@@ -152,6 +152,14 @@ final class FeedViewControllerTests: XCTestCase {
 private extension FeedViewController {
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
+    }
+    
+    var isShowingPullToRefreshIndicator: Bool {
+        return refreshControl?.isRefreshing == true
+    }
+    
+    var isShowingMainLoadingIndicator: Bool {
+        return mainLoadingIndicator.isAnimating
     }
 }
 
