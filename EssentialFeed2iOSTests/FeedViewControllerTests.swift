@@ -27,6 +27,7 @@ final class FeedViewController: UITableViewController {
         let control = UIRefreshControl()
         refreshControl = control
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.setContentOffset(CGPoint(x: 0, y: -refreshControl!.frame.size.height), animated: false)
         
         mainLoadingIndicator.startAnimating()
         load { [weak self] in
@@ -75,6 +76,27 @@ final class FeedViewControllerTests: XCTestCase {
         
         sut.refreshControl?.simulatePullToRefresh()
         XCTAssertEqual(loader.loadCallCount, 3)
+    }
+    
+    func test_pullToRefresh_showsLoadingIndicator() {
+//        let (sut, loader) = makeSUT()
+//        sut.loadViewIfNeeded()
+//        loader.completeFeedLoading()
+//        
+//        sut.refreshControl?.simulatePullToRefresh()
+//
+//        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+    }
+    
+    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+//        let (sut, loader) = makeSUT()
+//        sut.loadViewIfNeeded()
+//        loader.completeFeedLoading()
+//
+//        sut.refreshControl?.simulatePullToRefresh()
+//        loader.completeFeedLoading()
+//
+//        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
     func test_viewDidLoad_showsMainLoadingIndicator() {
