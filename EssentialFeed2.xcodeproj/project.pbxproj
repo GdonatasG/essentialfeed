@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		309B20542DF8A9DB009A4875 /* Video in Resources */ = {isa = PBXBuildFile; fileRef = 309B20532DF8A9DB009A4875 /* Video */; };
+		309B20552DF8A9DB009A4875 /* Video in Resources */ = {isa = PBXBuildFile; fileRef = 309B20532DF8A9DB009A4875 /* Video */; };
 		E207F3722DEB30EE004A2081 /* ManagedFeedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207F3712DEB30EE004A2081 /* ManagedFeedImage+CoreDataProperties.swift */; };
 		E207F3732DEB30EE004A2081 /* ManagedFeedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207F3702DEB30EE004A2081 /* ManagedFeedImage+CoreDataClass.swift */; };
 		E207F3742DEB30EE004A2081 /* ManagedCache+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207F36E2DEB30EE004A2081 /* ManagedCache+CoreDataClass.swift */; };
@@ -73,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		309B20532DF8A9DB009A4875 /* Video */ = {isa = PBXFileReference; lastKnownFileType = text; path = Video; sourceTree = "<group>"; };
 		E207F36E2DEB30EE004A2081 /* ManagedCache+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ManagedCache+CoreDataClass.swift"; path = "EssentialFeed2/Feed Cache/Infrastructure/ManagedCache+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E207F36F2DEB30EE004A2081 /* ManagedCache+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ManagedCache+CoreDataProperties.swift"; path = "EssentialFeed2/Feed Cache/Infrastructure/ManagedCache+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E207F3702DEB30EE004A2081 /* ManagedFeedImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ManagedFeedImage+CoreDataClass.swift"; path = "EssentialFeed2/Feed Cache/Infrastructure/ManagedFeedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 		E29C4C6D2DCE4A9000AE819C = {
 			isa = PBXGroup;
 			children = (
+				309B20532DF8A9DB009A4875 /* Video */,
 				E24DF2C42DF4A58C00D2573A /* EssentialFeed2iOSTests.xctestplan */,
 				E207F3E32DEB5697004A2081 /* EssentialFeed2CacheIntegrationTests.xctestplan */,
 				E207F37F2DEB3392004A2081 /* EssentialFeed2Tests.xctestplan */,
@@ -482,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309B20552DF8A9DB009A4875 /* Video in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +501,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309B20542DF8A9DB009A4875 /* Video in Resources */,
 				E207F3802DEB3392004A2081 /* EssentialFeed2Tests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
