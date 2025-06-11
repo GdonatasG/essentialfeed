@@ -47,8 +47,13 @@ public final class FeedViewController: UITableViewController {
     @objc private func load(completion: @escaping () -> Void) {
         loader?.load { [weak self] result in
             guard let self = self else { return }
-            self.tableModel = (try? result.get()) ?? []
-            self.tableView.reloadData()
+            switch (result) {
+            case let .success(feed):
+                self.tableModel = feed
+                self.tableView.reloadData()
+            case .failure:
+                break
+            }
             completion()
         }
     }
