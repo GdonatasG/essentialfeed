@@ -147,7 +147,29 @@ final class FeedViewControllerTests: XCTestCase {
         loader.completeImageLoadingWithError(at: 1)
         XCTAssertEqual(view0?.isShowingImageLoadingIndicator, false, "Expected no loading indicator state change for first view once second image loading completes with error")
         XCTAssertEqual(view1?.isShowingImageLoadingIndicator, false, "Expected no loading indicator for second view once second image loading completes with error")
+    }
+    
+    func test_feedImageView_rendersImageLoadedFromURL() {
+        let (sut, loader) = makeSUT()
+
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
         
+        let view0 = sut.simulateFeedImageViewVisible(at: 0)
+        let view1 = sut.simulateFeedImageViewVisible(at: 1)
+        
+        XCTAssertEqual(view0?.renderedImage, .none, "Expected no image for first view while loading first image")
+        XCTAssertEqual(view1?.renderedImage, .none, "Expected no image for second view while loading second image")
+        
+        let imageData0 = UIImage.make(withColor: .red)
+        loader.completeImageLoading(with: imageData0.pngData()!, at: 0)
+        XCTAssertEqual(view0?.renderedImage?.pixelData(), imageData0.pixelData(), "Expected image for first view once first image loading completes successfully")
+        XCTAssertEqual(view1?.renderedImage, .none, "Expected no image state change for second view once first image loading completes successfully")
+        
+        let imageData1 = UIImage.make(withColor: .blue)
+        loader.completeImageLoading(with: imageData1.pngData()!, at: 1)
+        XCTAssertEqual(view0?.renderedImage?.pixelData(), imageData0.pixelData(), "Expected no image state change for first view once second image loading completes successfullly")
+        XCTAssertEqual(view1?.renderedImage?.pixelData(), imageData1.pixelData(), "Expected image for second view once second image loading completes successfully")
 
     }
     
@@ -296,6 +318,10 @@ private extension FeedImageCell {
     var descriptionText: String? {
         return descriptionLabel.text
     }
+    
+    var renderedImage: UIImage? {
+        return feedImageView.image
+    }
 }
 
 private extension UIRefreshControl {
@@ -305,5 +331,43 @@ private extension UIRefreshControl {
                 (target as NSObject).perform(Selector($0))
             }
         }
+    }
+}
+
+private extension UIImage {
+    static func make(withColor color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        color.setFill()
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    func pixelData() -> [UInt8]? {
+        guard let cgImage = cgImage else { return nil }
+        
+        let width = cgImage.width
+        let height = cgImage.height
+        let bytesPerPixel = 4
+        let bytesPerRow = bytesPerPixel * width
+        let totalBytes = height * bytesPerRow
+        
+        var pixelData = [UInt8](repeating: 0, count: totalBytes)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: &pixelData,
+                                width: width,
+                                height: height,
+                                bitsPerComponent: 8,
+                                bytesPerRow: bytesPerRow,
+                                space: colorSpace,
+                                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+
+        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
+        
+        return pixelData
     }
 }
