@@ -35,7 +35,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
             view.addSubview(indicator)
         }
         refreshControl = loadController?.refreshControl
-        tableView.setContentOffset(CGPoint(x: 0, y: -refreshControl!.frame.size.height), animated: false)
         loadController?.onFeedLoaded = { [weak self] feed in
             self?.tableModel = feed
         }
