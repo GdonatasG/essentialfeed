@@ -390,7 +390,7 @@ private extension FeedViewController {
     }
     
     var isShowingMainLoadingIndicator: Bool {
-        return mainLoadingIndicator.isAnimating
+        return mainLoadingIndicator?.isAnimating == true
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
