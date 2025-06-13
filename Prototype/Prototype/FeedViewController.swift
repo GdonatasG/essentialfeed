@@ -14,7 +14,38 @@ struct FeedImageViewModel {
 }
 
 final class FeedViewController: UITableViewController {
-    private let feed = FeedImageViewModel.prototypeFeed
+    private let loadingIndicator = UIActivityIndicatorView(style: .large)
+    private var feed = [FeedImageViewModel]()
+    
+    override func viewDidLoad() {
+        loadingIndicator.center = view.center
+        view.addSubview(loadingIndicator)
+        
+        tableView.setContentOffset(CGPoint(x: 0, y: -refreshControl!.frame.size.height), animated: false)
+        
+        loadingIndicator.startAnimating()
+        load(completion: { [weak self] in
+            guard let self = self else { return }
+            self.loadingIndicator.stopAnimating()
+        })
+    }
+    
+    @IBAction func refresh() {
+        refreshControl?.beginRefreshing()
+        load(completion: {
+            self.refreshControl?.endRefreshing()
+        })
+    }
+    
+    private func load(completion: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            if (self.feed.isEmpty) {
+                self.feed = FeedImageViewModel.prototypeFeed
+                self.tableView.reloadData()
+            }
+            completion()
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feed.count
