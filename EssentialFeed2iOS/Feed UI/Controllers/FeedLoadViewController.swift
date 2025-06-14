@@ -21,22 +21,22 @@ final class FeedLoadViewController: NSObject {
         self.viewModel = viewModel
     }
     
-    @objc private func refresh() {
-        load { [weak self] isLoading in
-            if isLoading {
-                self?.refreshControl.beginRefreshing()
-            } else {
-                self?.refreshControl.endRefreshing()
-            }
-        }
-    }
-    
     public func loadFeed() {
         load { [weak self] isLoading in
             if isLoading {
                 self?.mainLoadingIndicator.startAnimating()
             } else {
                 self?.mainLoadingIndicator.stopAnimating()
+            }
+        }
+    }
+    
+    @objc private func refresh() {
+        load { [weak self] isLoading in
+            if isLoading {
+                self?.refreshControl.beginRefreshing()
+            } else {
+                self?.refreshControl.endRefreshing()
             }
         }
     }
