@@ -41,9 +41,9 @@ final class FeedLoadViewController: NSObject {
         }
     }
     
-    private func load(isLoading: @escaping (Bool) -> Void) {
-        viewModel.onChange = { viewModel in
-            isLoading(viewModel.isLoading)
+    private func load(isLoadingCallback: @escaping (Bool) -> Void) {
+        viewModel.onLoadingStateChange = { isLoading in
+            isLoadingCallback(isLoading)
         }
         viewModel.loadFeed()
     }
