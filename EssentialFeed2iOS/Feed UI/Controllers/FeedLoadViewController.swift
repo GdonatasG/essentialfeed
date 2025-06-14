@@ -5,7 +5,6 @@
 //  Created by Donatas Žitkus on 13/06/2025.
 //
 
-import EssentialFeed2
 import UIKit
 
 final class FeedLoadViewController: NSObject {
@@ -15,35 +14,37 @@ final class FeedLoadViewController: NSObject {
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
     }()
-    private var feedLoader: FeedLoader
     
-    init(feedLoader: FeedLoader) {
-        self.feedLoader = feedLoader
+    private let viewModel: FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
     }
     
-    public var onFeedLoaded: (([FeedImage]) -> Void)?
+    public func loadFeed() {
+        load { [weak self] isLoading in
+            if isLoading {
+                self?.mainLoadingIndicator.startAnimating()
+            } else {
+                self?.mainLoadingIndicator.stopAnimating()
+            }
+        }
+    }
     
     @objc private func refresh() {
-        refreshControl.beginRefreshing()
-        loadFeed { [weak self] in
-            self?.refreshControl.endRefreshing()
-        }
-    }
-    
-    @objc public func load() {
-        mainLoadingIndicator.startAnimating()
-        loadFeed { [weak self] in
-            self?.mainLoadingIndicator.stopAnimating()
-        }
-    }
-    
-    @objc private func loadFeed(completion: @escaping () -> Void) {
-        feedLoader.load { [weak self] result in
-            guard let self = self else { return }
-            if let feed = try? result.get() {
-                self.onFeedLoaded?(feed)
+        load { [weak self] isLoading in
+            if isLoading {
+                self?.refreshControl.beginRefreshing()
+            } else {
+                self?.refreshControl.endRefreshing()
             }
-            completion()
         }
+    }
+    
+    private func load(isLoadingCallback: @escaping (Bool) -> Void) {
+        viewModel.onLoadingStateChange = { isLoading in
+            isLoadingCallback(isLoading)
+        }
+        viewModel.loadFeed()
     }
 }
