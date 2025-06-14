@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import EssentialFeed2
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
@@ -33,7 +32,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         }
         refreshControl = loadController?.refreshControl
         tableView.prefetchDataSource = self
-        loadController?.load()
+        loadController?.loadFeed()
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
