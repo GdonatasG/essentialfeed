@@ -32,7 +32,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         }
         refreshControl = loadController?.refreshControl
         tableView.prefetchDataSource = self
-        loadController?.loadFeed()
+        loadController?.load()
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

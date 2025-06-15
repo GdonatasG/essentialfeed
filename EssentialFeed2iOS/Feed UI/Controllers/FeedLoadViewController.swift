@@ -15,7 +15,7 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
         return view
     }()
     
-    private let presenter: FeedPresenter
+    private let loadFeed: () -> Void
     
     private enum TriggeredLoadType {
         case load
@@ -24,8 +24,8 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     
     private var triggeredLoadType: TriggeredLoadType? = nil
     
-    init(presenter: FeedPresenter) {
-        self.presenter = presenter
+    init(loadFeed: @escaping () -> Void) {
+        self.loadFeed = loadFeed
     }
     
     func display(_ viewModel: FeedLoadingViewModel) {
@@ -39,18 +39,14 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
         }
     }
     
-    public func loadFeed() {
+    public func load() {
         triggeredLoadType = .load
-        presenter.loadFeed()
+        loadFeed()
     }
     
     @objc private func refresh() {
         triggeredLoadType = .refresh
-        load()
-    }
-    
-    private func load() {
-        presenter.loadFeed()
+        loadFeed()
     }
     
     private func toggleMainLoadingIndicator(_ isLoading: Bool) {
