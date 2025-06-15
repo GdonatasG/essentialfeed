@@ -26,8 +26,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadController?.mainLoadingIndicator.center = view.center
-        if let indicator = loadController?.mainLoadingIndicator {
+        mainLoadingIndicator?.center = view.center
+        if let indicator = mainLoadingIndicator {
             view.addSubview(indicator)
         }
         refreshControl = loadController?.refreshControl

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FeedLoadViewController: NSObject {
+final class FeedLoadViewController: NSObject, FeedLoadingView {
     public let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
     private(set) lazy var refreshControl: UIRefreshControl = {
         let view = UIRefreshControl()
@@ -15,36 +15,55 @@ final class FeedLoadViewController: NSObject {
         return view
     }()
     
-    private let viewModel: FeedViewModel
+    private let presenter: FeedPresenter
     
-    init(viewModel: FeedViewModel) {
-        self.viewModel = viewModel
+    private enum TriggeredLoadType {
+        case load
+        case refresh
+    }
+    
+    private var triggeredLoadType: TriggeredLoadType? = nil
+    
+    init(presenter: FeedPresenter) {
+        self.presenter = presenter
+    }
+    
+    func display(isLoading: Bool) {
+        if let loadType = triggeredLoadType {
+            switch loadType {
+            case .load: toggleMainLoadingIndicator(isLoading)
+            case .refresh: toggleRefreshControl(isLoading)
+            }
+        }
     }
     
     public func loadFeed() {
-        load { [weak self] isLoading in
-            if isLoading {
-                self?.mainLoadingIndicator.startAnimating()
-            } else {
-                self?.mainLoadingIndicator.stopAnimating()
-            }
-        }
+        triggeredLoadType = .load
+        presenter.loadFeed()
     }
     
     @objc private func refresh() {
-        load { [weak self] isLoading in
-            if isLoading {
-                self?.refreshControl.beginRefreshing()
-            } else {
-                self?.refreshControl.endRefreshing()
-            }
+        triggeredLoadType = .refresh
+        load()
+    }
+    
+    private func load() {
+        presenter.loadFeed()
+    }
+    
+    private func toggleMainLoadingIndicator(_ isLoading: Bool) {
+        if isLoading {
+            mainLoadingIndicator.startAnimating()
+        } else {
+            mainLoadingIndicator.stopAnimating()
         }
     }
     
-    private func load(isLoadingCallback: @escaping (Bool) -> Void) {
-        viewModel.onLoadingStateChange = { isLoading in
-            isLoadingCallback(isLoading)
+    private func toggleRefreshControl(_ isLoading: Bool) {
+        if isLoading {
+            refreshControl.beginRefreshing()
+        } else {
+            refreshControl.endRefreshing()
         }
-        viewModel.loadFeed()
     }
 }
