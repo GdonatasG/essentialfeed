@@ -28,7 +28,9 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
         self.presenter = presenter
     }
     
-    func display(isLoading: Bool) {
+    func display(_ viewModel: FeedLoadingViewModel) {
+        let isLoading = viewModel.isLoading
+
         if let loadType = triggeredLoadType {
             switch loadType {
             case .load: toggleMainLoadingIndicator(isLoading)
