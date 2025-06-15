@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FeedLoadViewControllerDelegate {
+    func didRequestFeedLoad()
+}
+
 final class FeedLoadViewController: NSObject, FeedLoadingView {
     public let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
     private(set) lazy var refreshControl: UIRefreshControl = {
@@ -15,7 +19,7 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
         return view
     }()
     
-    private let loadFeed: () -> Void
+    private let delegate: FeedLoadViewControllerDelegate
     
     private enum TriggeredLoadType {
         case load
@@ -24,8 +28,8 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     
     private var triggeredLoadType: TriggeredLoadType? = nil
     
-    init(loadFeed: @escaping () -> Void) {
-        self.loadFeed = loadFeed
+    init(delegate: FeedLoadViewControllerDelegate) {
+        self.delegate = delegate
     }
     
     func display(_ viewModel: FeedLoadingViewModel) {
@@ -41,12 +45,12 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     
     public func load() {
         triggeredLoadType = .load
-        loadFeed()
+        delegate.didRequestFeedLoad()
     }
     
     @objc private func refresh() {
         triggeredLoadType = .refresh
-        loadFeed()
+        delegate.didRequestFeedLoad()
     }
     
     private func toggleMainLoadingIndicator(_ isLoading: Bool) {
