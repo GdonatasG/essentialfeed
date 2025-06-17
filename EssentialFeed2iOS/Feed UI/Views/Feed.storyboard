@@ -10,7 +10,7 @@
         <!--FeedViewController-->
         <scene sceneID="554-wR-CaC">
             <objects>
-                <tableViewController title="FeedViewController" id="EhF-t1-vhg" customClass="FeedViewController" customModule="Prototype" sceneMemberID="viewController">
+                <tableViewController title="FeedViewController" id="EhF-t1-vhg" customClass="FeedViewController" customModule="EssentialFeed2iOS" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hlo-Vv-HBL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="566" id="U29-14-osU" userLabel="FeedImageCell" customClass="FeedImageCell" customModule="Prototype" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="566" id="U29-14-osU" userLabel="FeedImageCell" customClass="FeedImageCell" customModule="EssentialFeed2iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="393" height="566"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U29-14-osU" id="TiK-5f-KuR">
