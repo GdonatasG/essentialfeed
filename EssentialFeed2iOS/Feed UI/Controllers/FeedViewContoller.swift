@@ -26,13 +26,13 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadController?.mainLoadingIndicator.center = view.center
-        if let indicator = loadController?.mainLoadingIndicator {
+        mainLoadingIndicator?.center = view.center
+        if let indicator = mainLoadingIndicator {
             view.addSubview(indicator)
         }
         refreshControl = loadController?.refreshControl
         tableView.prefetchDataSource = self
-        loadController?.loadFeed()
+        loadController?.load()
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
