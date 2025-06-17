@@ -11,6 +11,7 @@ protocol FeedLoadViewControllerDelegate {
     func didRequestFeedLoad()
 }
 
+// TODO: merge this logic with FeedViewController
 final class FeedLoadViewController: NSObject, FeedLoadingView {
     public let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
     @IBOutlet private var refreshControl: UIRefreshControl?
