@@ -41,7 +41,15 @@ final class FeedImageCellController: FeedImageView {
         cell?.descriptionLabel.text = model.description
         cell?.locationLabel.text = model.location
         cell?.locationContainer.isHidden = !model.hasLocation
+        
         cell?.feedImageView.image = model.image
+        if model.image == nil {
+            cell?.feedImageView.alpha = 0
+            UIView.animate(withDuration: 0.25) {
+                self.cell?.feedImageView.alpha = 1
+            }
+        }
+        
         cell?.feedImageContainer.isShimmering = model.isLoading
         cell?.feedImageRetryButton.isHidden = !model.shouldRetry
         cell?.onRetry = delegate.didRequestImage
