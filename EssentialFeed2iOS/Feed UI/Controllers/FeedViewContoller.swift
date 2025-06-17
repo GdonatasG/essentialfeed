@@ -25,7 +25,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         if let indicator = mainLoadingIndicator {
             view.addSubview(indicator)
         }
-        tableView.prefetchDataSource = self
         loadController?.load()
     }
     
