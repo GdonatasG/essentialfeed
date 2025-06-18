@@ -50,12 +50,13 @@ final class FeedViewControllerTests: XCTestCase {
 
     }
     
+    // TODO: fix test (unable to check if indicator is refreshing)
     func test_pullToRefreshIndicator_isShownCorrectly() {
         let (sut, loader) = makeSUT()
             
         sut.loadViewIfNeeded()
         XCTAssertFalse(sut.isShowingPullToRefreshIndicator, "Expected no pull to refresh indicator once view is loaded")
-        loader.completeFeedLoading(at: 0)
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
         
 //        sut.simulateUserInitiatedFeedReload()
 //        XCTAssertTrue(sut.isShowingPullToRefreshIndicator, "Expected pull to refresh indicator once user initiates a reload")
