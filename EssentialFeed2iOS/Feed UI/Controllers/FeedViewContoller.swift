@@ -21,7 +21,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My Feed"
+        title = FeedPresenter.title
         
         mainLoadingIndicator?.center = view.center
         if let indicator = mainLoadingIndicator {
