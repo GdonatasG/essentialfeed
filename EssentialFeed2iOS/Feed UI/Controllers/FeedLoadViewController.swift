@@ -11,15 +11,12 @@ protocol FeedLoadViewControllerDelegate {
     func didRequestFeedLoad()
 }
 
+// TODO: merge this logic with FeedViewController (Module 5, episode 8, approx. 10:00)
 final class FeedLoadViewController: NSObject, FeedLoadingView {
     public let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
-    private(set) lazy var refreshControl: UIRefreshControl = {
-        let view = UIRefreshControl()
-        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        return view
-    }()
+    @IBOutlet private var refreshControl: UIRefreshControl?
     
-    private let delegate: FeedLoadViewControllerDelegate
+    var delegate: FeedLoadViewControllerDelegate?
     
     private enum TriggeredLoadType {
         case load
@@ -27,10 +24,6 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     }
     
     private var triggeredLoadType: TriggeredLoadType? = nil
-    
-    init(delegate: FeedLoadViewControllerDelegate) {
-        self.delegate = delegate
-    }
     
     func display(_ viewModel: FeedLoadingViewModel) {
         let isLoading = viewModel.isLoading
@@ -45,12 +38,12 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     
     public func load() {
         triggeredLoadType = .load
-        delegate.didRequestFeedLoad()
+        delegate?.didRequestFeedLoad()
     }
     
-    @objc private func refresh() {
+    @IBAction func refresh() {
         triggeredLoadType = .refresh
-        delegate.didRequestFeedLoad()
+        delegate?.didRequestFeedLoad()
     }
     
     private func toggleMainLoadingIndicator(_ isLoading: Bool) {
@@ -63,9 +56,9 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     
     private func toggleRefreshControl(_ isLoading: Bool) {
         if isLoading {
-            refreshControl.beginRefreshing()
+            refreshControl?.beginRefreshing()
         } else {
-            refreshControl.endRefreshing()
+            refreshControl?.endRefreshing()
         }
     }
 }

@@ -9,18 +9,13 @@ import Foundation
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    private var loadController: FeedLoadViewController?
+    @IBOutlet var loadController: FeedLoadViewController?
     var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
     
     public var mainLoadingIndicator: UIActivityIndicatorView? {
         return loadController?.mainLoadingIndicator
-    }
-    
-    convenience init(loadController: FeedLoadViewController) {
-        self.init()
-        self.loadController = loadController
     }
     
     public override func viewDidLoad() {
@@ -30,13 +25,11 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         if let indicator = mainLoadingIndicator {
             view.addSubview(indicator)
         }
-        refreshControl = loadController?.refreshControl
-        tableView.prefetchDataSource = self
         loadController?.load()
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellController(forRowAt: indexPath).view()
+        return cellController(forRowAt: indexPath).view(in: tableView)
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
