@@ -1,5 +1,5 @@
 //
-//  FeedImageViewModel.swift
+//  FeedImagePresenter.swift
 //  EssentialFeed2iOS
 //
 //  Created by Donatas Žitkus on 14/06/2025.
