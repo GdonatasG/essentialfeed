@@ -1,5 +1,5 @@
 //
-//  FeedViewControllerTests.swift
+//  FeedUIIntegrationTests.swift
 //  EssentialFeed2iOSTests
 //
 //  Created by Donatas Zitkus on 08/06/2025.
@@ -10,7 +10,16 @@ import UIKit
 import EssentialFeed2
 import EssentialFeed2iOS
 
-final class FeedViewControllerTests: XCTestCase {
+final class FeedUIIntegrationTests: XCTestCase {
+    
+    func test_feedView_hasTitle() {
+        let (sut, _) = makeSUT()
+
+        sut.loadViewIfNeeded()
+    
+        XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
+    }
+    
     func test_loadFeedActions_requestFeedFromLoader() {
         let (sut, loader) = makeSUT()
         
@@ -41,12 +50,13 @@ final class FeedViewControllerTests: XCTestCase {
 
     }
     
+    // TODO: fix test (unable to check if indicator is refreshing)
     func test_pullToRefreshIndicator_isShownCorrectly() {
         let (sut, loader) = makeSUT()
             
         sut.loadViewIfNeeded()
         XCTAssertFalse(sut.isShowingPullToRefreshIndicator, "Expected no pull to refresh indicator once view is loaded")
-        loader.completeFeedLoading(at: 0)
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
         
 //        sut.simulateUserInitiatedFeedReload()
 //        XCTAssertTrue(sut.isShowingPullToRefreshIndicator, "Expected pull to refresh indicator once user initiates a reload")
