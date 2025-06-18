@@ -47,6 +47,10 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     }
     
     private func toggleMainLoadingIndicator(_ isLoading: Bool) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.toggleMainLoadingIndicator(isLoading) }
+        }
+        
         if isLoading {
             mainLoadingIndicator.startAnimating()
         } else {
