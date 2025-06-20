@@ -36,14 +36,14 @@ class FeedPresenterTests: XCTestCase {
     }
     
     // Join no-error and loading checks into same test
-    func test_didStartLoadingFeed_displaysLoadingMessage() {
+    func test_didStartLoadingFeed_startsLoading() {
         let (sut, view) = makeSUT()
         
         sut.didStartLoadingFeed()
         
         XCTAssertEqual(view.messages, [.display(loading: true)])
     }
-    
+        
     // MARK: - helpers
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedPresenter, view: ViewSpy) {
         let view = ViewSpy()
