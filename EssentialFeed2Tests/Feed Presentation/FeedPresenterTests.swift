@@ -7,6 +7,7 @@
 
 import Foundation
 import XCTest
+import EssentialFeed2
 
 struct FeedLoadingViewModel {
     let isLoading: Bool
@@ -16,15 +17,34 @@ protocol FeedLoadingView {
     func display(_ viewModel: FeedLoadingViewModel)
 }
 
+struct FeedViewModel {
+    let feed: [FeedImage]
+}
+
+protocol FeedView {
+    func display(_ viewModel: FeedViewModel)
+}
+
 final class FeedPresenter {
+    private let feedView: FeedView
     private let loadingView: FeedLoadingView
     
-    init(loadingView: FeedLoadingView) {
+    init(feedView: FeedView, loadingView: FeedLoadingView) {
+        self.feedView = feedView
         self.loadingView = loadingView
     }
     
     func didStartLoadingFeed() {
         loadingView.display(FeedLoadingViewModel(isLoading: true))
+    }
+    
+    func didFinishLoadingFeed(with feed: [FeedImage]) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.didFinishLoadingFeed(with: feed) }
+        }
+        
+        feedView.display(FeedViewModel(feed: feed))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 }
 
@@ -43,18 +63,31 @@ class FeedPresenterTests: XCTestCase {
         
         XCTAssertEqual(view.messages, [.display(loading: true)])
     }
+    
+    func test_didFinishLoadingFeed_displaysFeedAndStopsLoading() {
+        let (sut, view) = makeSUT()
+        let feed = uniqueImageFeed().models
+        
+        sut.didFinishLoadingFeed(with: feed)
+        
+        XCTAssertEqual(view.messages, [
+            .display(feed: feed),
+            .display(loading: false)
+        ])
+    }
         
     // MARK: - helpers
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedPresenter, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = FeedPresenter(loadingView: view)
+        let sut = FeedPresenter(feedView: view, loadingView: view)
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(view, file: file, line: line)
         return (sut, view)
     }
     
-    private class ViewSpy: FeedLoadingView {
+    private class ViewSpy: FeedView, FeedLoadingView {
         enum Message: Hashable {
+            case display(feed: [FeedImage])
             case display(loading: Bool)
         }
         
@@ -62,6 +95,10 @@ class FeedPresenterTests: XCTestCase {
         
         func display(_ viewModel: FeedLoadingViewModel) {
             messages.insert(.display(loading: viewModel.isLoading))
+        }
+        
+        func display(_ viewModel: FeedViewModel) {
+            messages.insert(.display(feed: viewModel.feed))
         }
     }
 }
