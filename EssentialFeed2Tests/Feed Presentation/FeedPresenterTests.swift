@@ -35,6 +35,7 @@ class FeedPresenterTests: XCTestCase {
         XCTAssertTrue(view.messages.isEmpty, "Expected no view messages")
     }
     
+    // Join no-error and loading checks into same test
     func test_didStartLoadingFeed_displaysLoadingMessage() {
         let (sut, view) = makeSUT()
         
