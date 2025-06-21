@@ -30,9 +30,9 @@ final class FeedImagePresentationAdapter<View: FeedImageView, Image>: FeedImageC
     private func handle(_ result: FeedImageDataLoader.Result) {
         switch result {
         case let .success(data):
-            presenter?.didFinishLoadingImageData(with: data, for: model)
+            presenter?.didFinishLoadingImageDataSuccessfully(with: data, for: model)
         case let .failure(error):
-            presenter?.didFinishLoadingImageData(with: error, for: model)
+            presenter?.didFinishLoadingImageDataUnsuccessfully(with: error, for: model)
         }
     }
     
