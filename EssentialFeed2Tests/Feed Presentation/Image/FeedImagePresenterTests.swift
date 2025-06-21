@@ -1,9 +1,10 @@
 //
-//  FeedImagePresenterTests.swift
-//  EssentialFeed2Tests
+//  FeedImagePresenterTests 2.swift
+//  EssentialFeed2
 //
 //  Created by Donatas Žitkus on 21/06/2025.
 //
+
 
 import Foundation
 import EssentialFeed2
@@ -30,8 +31,8 @@ class FeedImagePresenterTests: XCTestCase {
     func test_didFinishLoadingImageDataSuccessfully_displaysLoadedImage() {
         let (sut, view) = makeSUT()
         let feedImage = makeImage()
-        let imageData: Data = Data("any image".utf8)
-        
+        let imageData = anyImageData()
+
         sut.didFinishLoadingImageDataSuccessfully(with: imageData, for: feedImage)
         
         XCTAssertEqual(view.messages, [
@@ -40,10 +41,10 @@ class FeedImagePresenterTests: XCTestCase {
     }
     
     func test_didFinishLoadingImageDataSuccessfully_displaysRetryAndDoesNotDisplayImageWhenTransformedImageDoesNotExistOrWasTransformedUnsuccessfully() {
-        let failingImageTransformer: (Data) -> Data? = { data in nil }
+        let failingImageTransformer = imageTransformer { _ in nil }
         let (sut, view) = makeSUT(imageTransformer: failingImageTransformer)
         let feedImage = makeImage()
-        let imageData: Data = Data("any image".utf8)
+        let imageData = anyImageData()
         
         sut.didFinishLoadingImageDataSuccessfully(with: imageData, for: feedImage)
         
@@ -65,7 +66,7 @@ class FeedImagePresenterTests: XCTestCase {
     
     
     // MARK: - Helpers
-    private func makeSUT(imageTransformer: @escaping (Data) -> Data? = { data in data}, file: StaticString = #filePath, line: UInt = #line) -> (FeedImagePresenter<ViewSpy, Data>, view: ViewSpy) {
+    private func makeSUT(imageTransformer: @escaping (Data) -> TransformedImageData? = { data in data }, file: StaticString = #filePath, line: UInt = #line) -> (FeedImagePresenter<ViewSpy, Data>, view: ViewSpy) {
         let view = ViewSpy()
         let sut = FeedImagePresenter(view: view, imageTransformer: imageTransformer)
         trackForMemoryLeak(sut, file: file, line: line)
@@ -76,6 +77,16 @@ class FeedImagePresenterTests: XCTestCase {
     private func makeImage(description: String? = nil, location: String? = nil) -> FeedImage {
         return FeedImage(id: UUID(), description: description, location: location, url: anyURL())
     }
+    
+    private func imageTransformer(_ completion: @escaping (Data) -> TransformedImageData?) -> (Data) -> TransformedImageData? {
+        return completion
+    }
+    
+    private func anyImageData() -> Data {
+        return Data("any image".utf8)
+    }
+    
+    private typealias TransformedImageData = Data
     
     private class ViewSpy: FeedImageView {
         typealias Image = Data
@@ -93,7 +104,7 @@ class FeedImagePresenterTests: XCTestCase {
 }
 
 private extension FeedImage {
-    func toViewModel(isLoading: Bool = false, shouldRetry: Bool = false, image: Data? = nil) -> FeedImageViewModelStruct<Data> {
+    func toViewModel<Image: Hashable>(isLoading: Bool = false, shouldRetry: Bool = false, image: Image? = nil) -> FeedImageViewModelStruct<Image> {
         return FeedImageViewModelStruct(description: description, location: location, image: image, isLoading: isLoading, shouldRetry: shouldRetry)
     }
 }
