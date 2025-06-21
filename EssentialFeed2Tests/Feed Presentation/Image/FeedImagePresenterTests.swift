@@ -27,6 +27,17 @@ class FeedImagePresenterTests: XCTestCase {
         ])
     }
     
+    func test_didFinishLoadingImageDataSuccessfully_displaysLoadedImage() {
+        let (sut, view) = makeSUT()
+        let feedImage = makeImage()
+        let imageData: Data = Data("any image".utf8)
+        
+        sut.didFinishLoadingImageDataSuccessfully(with: imageData, for: feedImage)
+        
+        XCTAssertEqual(view.messages, [
+            .display(feedImage.toViewModel(isLoading: false, shouldRetry: false, image: imageData))
+        ])
+    }
     
     
     // MARK: - Helpers
