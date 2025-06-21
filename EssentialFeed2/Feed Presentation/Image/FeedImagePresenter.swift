@@ -64,7 +64,7 @@ public class FeedImagePresenter<View: FeedImageView, Image> where View.Image == 
             shouldRetry: false))
     }
     
-    func didFinishLoadingImageDataUnsuccessfully(with error: Error, for model: FeedImage) {
+    public func didFinishLoadingImageDataUnsuccessfully(with error: Error, for model: FeedImage) {
         view.display(FeedImageViewModelStruct(
             description: model.description,
             location: model.location,

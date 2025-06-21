@@ -39,11 +39,36 @@ class FeedImagePresenterTests: XCTestCase {
         ])
     }
     
+    func test_didFinishLoadingImageDataSuccessfully_displaysRetryAndDoesNotDisplayImageWhenTransformedImageDoesNotExistOrWasTransformedUnsuccessfully() {
+        let failingImageTransformer: (Data) -> Data? = { data in nil }
+        let (sut, view) = makeSUT(imageTransformer: failingImageTransformer)
+        let feedImage = makeImage()
+        let imageData: Data = Data("any image".utf8)
+        
+        sut.didFinishLoadingImageDataSuccessfully(with: imageData, for: feedImage)
+        
+        XCTAssertEqual(view.messages, [
+            .display(feedImage.toViewModel(isLoading: false, shouldRetry: true, image: nil))
+        ])
+    }
+    
+    func test_didFinishLoadingImageDataUnsuccessfully_displaysRetry() {
+        let (sut, view) = makeSUT()
+        let feedImage = makeImage()
+        let imageData: Data = Data("any image".utf8)
+        
+        sut.didFinishLoadingImageDataUnsuccessfully(with: anyNSError(), for: feedImage)
+        
+        XCTAssertEqual(view.messages, [
+            .display(feedImage.toViewModel(isLoading: false, shouldRetry: true, image: nil))
+        ])
+    }
+    
     
     // MARK: - Helpers
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (FeedImagePresenter<ViewSpy, Data>, view: ViewSpy) {
+    private func makeSUT(imageTransformer: @escaping (Data) -> Data? = { data in data}, file: StaticString = #filePath, line: UInt = #line) -> (FeedImagePresenter<ViewSpy, Data>, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = FeedImagePresenter(view: view) { data in data }
+        let sut = FeedImagePresenter(view: view, imageTransformer: imageTransformer)
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(view, file: file, line: line)
         return (sut, view)
