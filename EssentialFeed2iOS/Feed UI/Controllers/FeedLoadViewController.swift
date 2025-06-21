@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EssentialFeed2
 
 protocol FeedLoadViewControllerDelegate {
     func didRequestFeedLoad()
