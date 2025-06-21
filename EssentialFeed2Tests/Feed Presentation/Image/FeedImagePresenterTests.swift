@@ -55,7 +55,6 @@ class FeedImagePresenterTests: XCTestCase {
     func test_didFinishLoadingImageDataUnsuccessfully_displaysRetry() {
         let (sut, view) = makeSUT()
         let feedImage = makeImage()
-        let imageData: Data = Data("any image".utf8)
         
         sut.didFinishLoadingImageDataUnsuccessfully(with: anyNSError(), for: feedImage)
         
