@@ -46,6 +46,14 @@ final class FeedPresenter {
         feedView.display(FeedViewModel(feed: feed))
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
+    
+    func didFinishLoadingFeedWithError(with error: Error) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.didFinishLoadingFeedWithError(with: error) }
+        }
+        
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
+    }
 }
 
 class FeedPresenterTests: XCTestCase {
@@ -74,6 +82,14 @@ class FeedPresenterTests: XCTestCase {
             .display(feed: feed),
             .display(loading: false)
         ])
+    }
+    
+    func test_didFinishLoadingFeedWithError_stopsLoading() {
+        let (sut, view) = makeSUT()
+        
+        sut.didFinishLoadingFeedWithError(with: anyNSError())
+        
+        XCTAssertEqual(view.messages, [.display(loading: false)])
     }
         
     // MARK: - helpers
