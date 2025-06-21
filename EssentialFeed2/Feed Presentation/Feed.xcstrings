@@ -3,6 +3,7 @@
   "strings" : {
     "FEED_VIEW_TITLE" : {
       "comment" : "Title for the feed view",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
