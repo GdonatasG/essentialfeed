@@ -8,14 +8,22 @@
 import Foundation
 
 public struct FeedImageViewModelStruct<Image: Hashable>: Hashable {
-    let description: String?
-    let location: String?
-    let image: Image?
-    let isLoading: Bool
-    let shouldRetry: Bool
+    public let description: String?
+    public let location: String?
+    public let image: Image?
+    public let isLoading: Bool
+    public let shouldRetry: Bool
     
-    var hasLocation: Bool {
+    public var hasLocation: Bool {
         return location != nil
+    }
+    
+    public init(description: String?, location: String?, image: Image?, isLoading: Bool, shouldRetry: Bool) {
+        self.description = description
+        self.location = location
+        self.image = image
+        self.isLoading = isLoading
+        self.shouldRetry = shouldRetry
     }
 }
 
@@ -32,5 +40,14 @@ public class FeedImagePresenter<View: FeedImageView, Image> where View.Image == 
     public init(view: View, imageTransformer: @escaping (Data) -> Image?) {
         self.view = view
         self.imageTransformer = imageTransformer
+    }
+    
+    public func didStartLoadingImageData(for model: FeedImage) {
+        view.display(FeedImageViewModelStruct(
+            description: model.description,
+            location: model.location,
+            image: nil,
+            isLoading: true,
+            shouldRetry: false))
     }
 }
