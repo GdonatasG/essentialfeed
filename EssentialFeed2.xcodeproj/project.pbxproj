@@ -92,13 +92,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		30204C022E07BFE900495365 /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2iOS" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Feed Feature/FeedImageDataLoader.swift",
-			);
-			target = E24DF2A92DF4A4F900D2573A /* EssentialFeed2iOS */;
-		};
 		E207F3822DEB3521004A2081 /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2Tests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -124,9 +117,6 @@
 		};
 		E29C4C892DCE4A9100AE819C /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Feed Feature/FeedImageDataLoader.swift",
-			);
 			publicHeaders = (
 				EssentialFeed2.h,
 			);
@@ -155,7 +145,6 @@
 			exceptions = (
 				E29C4C892DCE4A9100AE819C /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2" target */,
 				E207F3822DEB3521004A2081 /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2Tests" target */,
-				30204C022E07BFE900495365 /* Exceptions for "EssentialFeed2" folder in "EssentialFeed2iOS" target */,
 			);
 			path = EssentialFeed2;
 			sourceTree = "<group>";
