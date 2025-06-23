@@ -9,9 +9,7 @@
 import Foundation
 import CoreData
 
-
 extension ManagedFeedImage {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedFeedImage> {
         return NSFetchRequest<ManagedFeedImage>(entityName: "ManagedFeedImage")
     }
@@ -20,7 +18,7 @@ extension ManagedFeedImage {
     @NSManaged public var imageDescription: String?
     @NSManaged public var location: String?
     @NSManaged public var url: URL
-
+    @NSManaged public var data: Data?
 }
 
 extension ManagedFeedImage : Identifiable {
