@@ -2,7 +2,7 @@
 //  ManagedFeedImage+CoreDataProperties.swift
 //  EssentialFeed2
 //
-//  Created by Donatas Zitkus on 31/05/2025.
+//  Created by Donatas Žitkus on 24/06/2025.
 //
 //
 
@@ -20,6 +20,7 @@ extension ManagedFeedImage {
     @NSManaged public var imageDescription: String?
     @NSManaged public var location: String?
     @NSManaged public var url: URL
+    @NSManaged public var data: Data?
 
 }
 

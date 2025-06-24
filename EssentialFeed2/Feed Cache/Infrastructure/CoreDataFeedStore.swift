@@ -10,7 +10,7 @@ import CoreData
 
 public class CoreDataFeedStore: FeedStore {
     private let container: NSPersistentContainer
-    private let context: NSManagedObjectContext
+    let context: NSManagedObjectContext
     
     public init(storeURL: URL, bundle: Bundle = .main) {
         guard let modelURL = bundle.url(forResource: "FeedStore", withExtension: "momd"),
@@ -94,15 +94,23 @@ private extension ManagedCache {
         }
 }
 
-private extension ManagedFeedImage {
+extension ManagedFeedImage {
+    static func first(with url: URL, in context: NSManagedObjectContext) throws ->  ManagedFeedImage? {
+        let request = NSFetchRequest<ManagedFeedImage>(entityName: entity().name!)
+        request.predicate = NSPredicate(format: "%K == %@", argumentArray: [#keyPath(ManagedFeedImage.url), url])
+        request.returnsObjectsAsFaults = false
+        request.fetchLimit = 1
+        return try context.fetch(request).first
+    }
+    
     var local: LocalFeedImage {
-           return LocalFeedImage(
-               id: id,
-               description: imageDescription,
-               location: location,
-               url: url
-           )
-       }
+       return LocalFeedImage(
+           id: id,
+           description: imageDescription,
+           location: location,
+           url: url
+       )
+   }
     
     static func images(from feed: [LocalFeedImage], in context: NSManagedObjectContext) -> NSOrderedSet {
         let managedImages = feed.map { local in
