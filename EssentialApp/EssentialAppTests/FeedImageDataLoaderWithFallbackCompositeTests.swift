@@ -50,11 +50,17 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         expect(sut, toCompleteWith: .success(primaryData))
     }
     
-    func test_load_deliversFallbackDataOnPrimaryFailure() {
+    func test_loadImageData_deliversFallbackDataOnPrimaryFailure() {
         let fallbackData = Data("fallback".utf8)
         let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackData))
         
         expect(sut, toCompleteWith: .success(fallbackData))
+    }
+    
+    func test_loadImageData_deliversErrorOnBothPrimaryAndFallbackLoaderFailure() {
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .failure(anyNSError()))
+
+        expect(sut, toCompleteWith: .failure(anyNSError()))
     }
     
     // MARK: - Helpers
@@ -70,7 +76,7 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
     private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
-        sut.loadImageData(from: URL(string: "http://any-url.com")!) { receivedResult in
+        _ = sut.loadImageData(from: URL(string: "http://any-url.com")!) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedFeed), .success(fallbackFeed)):
                 XCTAssertEqual(receivedFeed, fallbackFeed)
