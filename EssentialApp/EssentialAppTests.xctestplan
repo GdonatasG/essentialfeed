@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "80056462-9253-409C-9D00-56EDE772253E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EssentialApp.xcodeproj",
+        "identifier" : "30204C432E0AE42100495365",
+        "name" : "EssentialAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
