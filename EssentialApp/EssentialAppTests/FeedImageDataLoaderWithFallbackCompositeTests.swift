@@ -28,8 +28,13 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
         let taskWrapper = TaskWrapper()
-        taskWrapper.wrapped = primary.loadImageData(from: url) { result in
-            completion(result)
+        taskWrapper.wrapped = primary.loadImageData(from: url) { [weak self] result in
+            switch result {
+            case .success:
+                completion(result)
+            case .failure:
+                taskWrapper.wrapped = self?.fallback.loadImageData(from: url, completion: completion)
+            }
         }
         return taskWrapper
     }
@@ -38,11 +43,18 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
 
 class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     func test_loadImageData_deliversPrimaryDataWithPrimaryLoaderSuccess() {
-        let primaryData = anyImageData()
-        let fallbackData = anyImageData()
+        let primaryData = Data("primary".utf8)
+        let fallbackData = Data("fallback".utf8)
         let sut = makeSUT(primaryResult: .success(primaryData), fallbackResult: .success(fallbackData))
         
         expect(sut, toCompleteWith: .success(primaryData))
+    }
+    
+    func test_load_deliversFallbackDataOnPrimaryFailure() {
+        let fallbackData = Data("fallback".utf8)
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackData))
+        
+        expect(sut, toCompleteWith: .success(fallbackData))
     }
     
     // MARK: - Helpers
@@ -78,8 +90,8 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         }
     }
     
-    private func anyImageData() -> Data {
-        return Data("any".utf8)
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
     
     private class LoaderStub: FeedImageDataLoader {
