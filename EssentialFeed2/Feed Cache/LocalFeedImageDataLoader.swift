@@ -10,7 +10,7 @@ import Foundation
 public final class LocalFeedImageDataLoader: FeedImageDataLoader {
     private let store: FeedImageDataStore
     
-    init(store: FeedImageDataStore) {
+    public init(store: FeedImageDataStore) {
         self.store = store
     }
     
