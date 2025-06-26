@@ -10,4 +10,10 @@
    <FileRef
       location = "group:EssentialApp/EssentialAppTests.xctestplan">
    </FileRef>
+   <FileRef
+      location = "group:CI_macOS.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:CI_iOS.xctestplan">
+   </FileRef>
 </Workspace>

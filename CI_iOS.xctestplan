@@ -1,0 +1,76 @@
+{
+  "configurations" : [
+    {
+      "id" : "45E0C14E-2E10-48DB-933A-55BA5E8E3995",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+          "identifier" : "30204C2D2E0AE42000495365",
+          "name" : "EssentialApp"
+        },
+        {
+          "containerPath" : "container:EssentialFeed2.xcodeproj",
+          "identifier" : "E29C4C762DCE4A9000AE819C",
+          "name" : "EssentialFeed2"
+        },
+        {
+          "containerPath" : "container:EssentialFeed2.xcodeproj",
+          "identifier" : "E24DF2A92DF4A4F900D2573A",
+          "name" : "EssentialFeed2iOS"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+      "identifier" : "30204C2D2E0AE42000495365",
+      "name" : "EssentialApp"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E207F3D82DEB563F004A2081",
+        "name" : "EssentialFeed2CacheIntegrationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E24DF2B22DF4A4F900D2573A",
+        "name" : "EssentialFeed2iOSTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E29C4CC52DD9B44E00AE819C",
+        "name" : "EssentialFeed2APIEndToEndTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+        "identifier" : "30204C432E0AE42100495365",
+        "name" : "EssentialAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E29C4C802DCE4A9100AE819C",
+        "name" : "EssentialFeed2Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
