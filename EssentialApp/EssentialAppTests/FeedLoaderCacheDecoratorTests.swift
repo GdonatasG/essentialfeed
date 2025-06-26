@@ -52,12 +52,4 @@ class FeedLoaderCacheDecoratorTests: XCTestCase {
         }
         wait(for: [exp], timeout: 1.0)
     }
-    
-    private func uniqueFeed() -> [FeedImage] {
-        return [FeedImage(id: UUID(), description: "any description", location: "any location", url: URL(string: "http://any-url.com")!)]
-    }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
 }

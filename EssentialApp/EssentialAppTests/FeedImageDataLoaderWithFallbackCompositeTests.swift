@@ -58,16 +58,6 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    public func trackForMemoryLeak(_ instace: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instace] in
-            XCTAssertNil(instace, "Instance should have been deallocated. Potential memory leak!", file: file, line: line)
-        }
-    }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-    
     private class LoaderStub: FeedImageDataLoader {
         private let result: FeedImageDataLoader.Result
         
