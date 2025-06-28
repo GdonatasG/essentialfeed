@@ -25,13 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let localStoreURL = NSPersistentContainer
                     .defaultDirectoryURL()
                     .appendingPathComponent("feed-store.sqlite")
-                let localStore = CoreDataFeedStore(storeURL: localStoreURL, bundle: Bundle(for: CoreDataFeedStore.self))
-                let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
-                let localImageLoader = LocalFeedImageDataLoader(store: localStore)
-        
         if CommandLine.arguments.contains("-reset") {
             try? FileManager.default.removeItem(at: localStoreURL)
         }
+        let localStore = CoreDataFeedStore(storeURL: localStoreURL, bundle: Bundle(for: CoreDataFeedStore.self))
+        let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
+        let localImageLoader = LocalFeedImageDataLoader(store: localStore)
         
         let feedViewController = FeedUIComposer.feedComposedWith(
             feedLoader: FeedLoaderWithFallbackComposite(
