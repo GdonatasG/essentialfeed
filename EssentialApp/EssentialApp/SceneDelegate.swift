@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ),
             imageLoader: FeedImageDataLoaderWithFallbackComposite(
                 primary: FeedImageDataLoaderCacheDecorator(decoratee: remoteImageLoader, cache: localImageLoader),
-                fallback: localImageLoader,
+                fallback: localImageLoader
             )
         )
         
