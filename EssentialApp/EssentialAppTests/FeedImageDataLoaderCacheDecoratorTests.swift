@@ -9,7 +9,7 @@ import XCTest
 import EssentialFeed2
 import EssentialApp
 
-class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
+class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoaderTestCase {
     func test_loadImageData_deliversImageDataOnLoaderSuccess() {
         let imageData = Data("data".utf8)
         let sut = makeSUT(loaderResult: .success(imageData))
@@ -49,22 +49,6 @@ class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
         trackForMemoryLeak(loader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return sut
-    }
-    
-    private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, file: StaticString = #filePath, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        _ = sut.loadImageData(from: anyURL()) { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedData), .success(fallbackData)):
-                XCTAssertEqual(receivedData, fallbackData)
-            case (.failure, .failure):
-                break
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
     }
     
     private class CacheSpy: FeedImageDataCache {

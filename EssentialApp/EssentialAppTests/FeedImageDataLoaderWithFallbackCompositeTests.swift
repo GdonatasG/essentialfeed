@@ -9,7 +9,7 @@ import XCTest
 import EssentialFeed2
 import EssentialApp
 
-class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
+class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase, FeedImageDataLoaderTestCase {
     func test_loadImageData_deliversPrimaryDataWithPrimaryLoaderSuccess() {
         let primaryData = Data("primary".utf8)
         let fallbackData = Data("fallback".utf8)
@@ -40,21 +40,5 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         trackForMemoryLeak(fallbackLoader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return sut
-    }
-    
-    private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, file: StaticString = #filePath, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        _ = sut.loadImageData(from: URL(string: "http://any-url.com")!) { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedFeed), .success(fallbackFeed)):
-                XCTAssertEqual(receivedFeed, fallbackFeed)
-            case (.failure, .failure):
-                break
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
     }
 }
