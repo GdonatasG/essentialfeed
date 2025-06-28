@@ -39,22 +39,22 @@
     {
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "E207F3D82DEB563F004A2081",
-        "name" : "EssentialFeed2CacheIntegrationTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "E24DF2B22DF4A4F900D2573A",
-        "name" : "EssentialFeed2iOSTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed2.xcodeproj",
         "identifier" : "E29C4CC52DD9B44E00AE819C",
         "name" : "EssentialFeed2APIEndToEndTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E29C4C802DCE4A9100AE819C",
+        "name" : "EssentialFeed2Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E207F3D82DEB563F004A2081",
+        "name" : "EssentialFeed2CacheIntegrationTests"
       }
     },
     {
@@ -67,8 +67,15 @@
     {
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "E29C4C802DCE4A9100AE819C",
-        "name" : "EssentialFeed2Tests"
+        "identifier" : "E24DF2B22DF4A4F900D2573A",
+        "name" : "EssentialFeed2iOSTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+        "identifier" : "30438F312E102F8000D8F291",
+        "name" : "EssentialAppUIAcceptanceTests"
       }
     }
   ],
