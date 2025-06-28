@@ -56,9 +56,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ySc-SI-cNN">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="353"/>
-                                                            <accessibility key="accessibilityConfiguration">
-                                                                <bool key="isElement" value="YES"/>
-                                                            </accessibility>
+                                                            <accessibility key="accessibilityConfiguration" identifier="feed-image-view"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="422.5" id="gRo-uy-g4Z"/>
                                                             </constraints>
@@ -126,6 +124,7 @@
                                         <constraint firstItem="pVw-DO-jQu" firstAttribute="trailing" secondItem="TiK-5f-KuR" secondAttribute="trailingMargin" id="ykL-50-Glm"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="feed-image-cell"/>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="YWP-ve-4qU" id="EKC-AZ-5De"/>
                                     <outlet property="feedImageContainer" destination="Fa3-Uz-uVp" id="XUO-bj-khZ"/>
