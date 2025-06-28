@@ -29,7 +29,7 @@ class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
 }
 
 class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
-    func test_load_deliversImageDataOnLoaderSuccess() {
+    func test_loadImageData_deliversImageDataOnLoaderSuccess() {
         let imageData = Data("data".utf8)
         let sut = makeSUT(loaderResult: .success(imageData))
         
