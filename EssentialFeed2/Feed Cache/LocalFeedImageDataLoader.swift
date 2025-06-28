@@ -53,3 +53,12 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         }
     }
 }
+
+extension LocalFeedImageDataLoader: FeedImageDataCache {
+    public typealias SaveResult = FeedImageDataCache.SaveResult
+    
+    public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(data, for: url, completion: completion)
+    }
+}
+
