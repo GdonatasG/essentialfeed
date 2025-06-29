@@ -10,7 +10,7 @@ import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     @IBOutlet var loadController: FeedLoadViewController?
-    var tableModel = [FeedImageCellController]() {
+    private var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
     
@@ -26,6 +26,10 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
             view.addSubview(indicator)
         }
         loadController?.load()
+    }
+    
+    public func display(_ feed: [FeedImageCellController]) {
+        tableModel = feed
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
