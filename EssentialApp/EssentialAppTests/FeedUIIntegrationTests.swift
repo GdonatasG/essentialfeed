@@ -1,8 +1,8 @@
 //
 //  FeedUIIntegrationTests.swift
-//  EssentialFeed2iOSTests
+//  EssentialAppTests
 //
-//  Created by Donatas Zitkus on 08/06/2025.
+//  Created by Donatas Zitkus on 29/06/2025.
 //
 
 import XCTest

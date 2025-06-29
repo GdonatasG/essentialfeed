@@ -1,8 +1,8 @@
 //
-//  FeedViewControllerTests+Localized.swift
-//  EssentialFeed2iOSTests
+//  FeedUIIntegrationTests+Localized.swift
+//  EssentialAppTests
 //
-//  Created by Donatas Žitkus on 18/06/2025.
+//  Created by Donatas Žitkus on 29/06/2025.
 //
 
 import XCTest
