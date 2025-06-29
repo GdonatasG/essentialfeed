@@ -1,5 +1,5 @@
 //
-//  FeedImageViewModelStruct.swift
+//  FeedImageViewModel.swift
 //  EssentialFeed2
 //
 //  Created by Donatas Žitkus on 21/06/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct FeedImageViewModelStruct<Image: Hashable>: Hashable {
+public struct FeedImageViewModel<Image: Hashable>: Hashable {
     public let description: String?
     public let location: String?
     public let image: Image?

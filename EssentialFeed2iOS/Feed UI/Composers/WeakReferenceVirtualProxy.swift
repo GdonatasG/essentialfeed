@@ -25,7 +25,7 @@ extension WeakReferenceVirtualProxy: FeedLoadingView where T: FeedLoadingView {
 extension WeakReferenceVirtualProxy: FeedImageView where T: FeedImageView {
     typealias Image = T.Image
     
-    func display(_ model: FeedImageViewModelStruct<T.Image>) {
+    func display(_ model: FeedImageViewModel<T.Image>) {
         object?.display(model)
     }
 }

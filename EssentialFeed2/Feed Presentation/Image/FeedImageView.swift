@@ -10,5 +10,5 @@ import Foundation
 public protocol FeedImageView {
     associatedtype Image: Hashable
     
-    func display(_ model: FeedImageViewModelStruct<Image>)
+    func display(_ model: FeedImageViewModel<Image>)
 }
