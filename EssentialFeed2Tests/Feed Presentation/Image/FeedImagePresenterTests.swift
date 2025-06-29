@@ -92,19 +92,19 @@ class FeedImagePresenterTests: XCTestCase {
         typealias Image = Data
         
         enum Message: Hashable {
-            case display(FeedImageViewModelStruct<Data>)
+            case display(FeedImageViewModel<Data>)
         }
         
         var messages = Set<Message>()
         
-        func display(_ model: FeedImageViewModelStruct<Data>) {
+        func display(_ model: FeedImageViewModel<Data>) {
             messages.insert(.display(model))
         }
     }
 }
 
 private extension FeedImage {
-    func toViewModel<Image: Hashable>(isLoading: Bool = false, shouldRetry: Bool = false, image: Image? = nil) -> FeedImageViewModelStruct<Image> {
-        return FeedImageViewModelStruct(description: description, location: location, image: image, isLoading: isLoading, shouldRetry: shouldRetry)
+    func toViewModel<Image: Hashable>(isLoading: Bool = false, shouldRetry: Bool = false, image: Image? = nil) -> FeedImageViewModel<Image> {
+        return FeedImageViewModel(description: description, location: location, image: image, isLoading: isLoading, shouldRetry: shouldRetry)
     }
 }
