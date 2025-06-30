@@ -60,7 +60,7 @@ class FeedSnapshotTests: XCTestCase {
                 image: UIImage.make(withColor: .red)
             ),
             ImageStub(
-                description: "The Desert Island in Faro is beautiful!! ☀️",
+                description: "The Desert Island in Faro is beautiful!!",
                 location: "Desert Island",
                 image: UIImage.make(withColor: .green)
             )
