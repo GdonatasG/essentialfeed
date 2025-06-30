@@ -17,7 +17,7 @@ public class FeedImagePresenter<View: FeedImageView, Image> where View.Image == 
     }
     
     public func didStartLoadingImageData(for model: FeedImage) {
-        view.display(FeedImageViewModelStruct(
+        view.display(FeedImageViewModel(
             description: model.description,
             location: model.location,
             image: nil,
@@ -30,7 +30,7 @@ public class FeedImagePresenter<View: FeedImageView, Image> where View.Image == 
             return didFinishLoadingImageDataUnsuccessfully(with: InvalidImageDataError(), for: model)
         }
         
-        view.display(FeedImageViewModelStruct(
+        view.display(FeedImageViewModel(
             description: model.description,
             location: model.location,
             image: image,
@@ -39,7 +39,7 @@ public class FeedImagePresenter<View: FeedImageView, Image> where View.Image == 
     }
     
     public func didFinishLoadingImageDataUnsuccessfully(with error: Error, for model: FeedImage) {
-        view.display(FeedImageViewModelStruct(
+        view.display(FeedImageViewModel(
             description: model.description,
             location: model.location,
             image: nil,

@@ -9,16 +9,16 @@ import Foundation
 import EssentialFeed2
 import UIKit
 
-protocol FeedImageCellControllerDelegate {
+public protocol FeedImageCellControllerDelegate {
     func didRequestImage()
     func didCancelImageRequest()
 }
 
-final class FeedImageCellController: FeedImageView {
+public final class FeedImageCellController: FeedImageView {
     private let delegate: FeedImageCellControllerDelegate
     private var cell: FeedImageCell?
     
-    init(delegate: FeedImageCellControllerDelegate) {
+    public init(delegate: FeedImageCellControllerDelegate) {
         self.delegate = delegate
     }
     
@@ -37,7 +37,7 @@ final class FeedImageCellController: FeedImageView {
         delegate.didCancelImageRequest()
     }
     
-    func display(_ model: FeedImageViewModelStruct<UIImage>) {
+    public func display(_ model: FeedImageViewModel<UIImage>) {
         cell?.descriptionLabel.text = model.description
         cell?.locationLabel.text = model.location
         cell?.locationContainer.isHidden = !model.hasLocation
