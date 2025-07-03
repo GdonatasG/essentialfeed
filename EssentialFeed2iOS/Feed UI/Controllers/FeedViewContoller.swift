@@ -14,6 +14,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         didSet { tableView.reloadData() }
     }
     
+    private var loadingControllers = [IndexPath: FeedImageCellController]()
+    
     public var mainLoadingIndicator: UIActivityIndicatorView? {
         return loadController?.mainLoadingIndicator
     }
@@ -28,8 +30,9 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         loadController?.load()
     }
     
-    public func display(_ feed: [FeedImageCellController]) {
-        tableModel = feed
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        loadingControllers = [:]
+        tableModel = cellControllers
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,10 +58,13 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
     
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
-        return tableModel[indexPath.row]
+        let controller = tableModel[indexPath.row]
+        loadingControllers[indexPath] = controller
+        return controller
     }
     
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
-        cellController(forRowAt: indexPath).cancelLoad()
+        loadingControllers[indexPath]?.cancelLoad()
+        loadingControllers[indexPath] = nil
     }
 }
