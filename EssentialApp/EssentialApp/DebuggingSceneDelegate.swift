@@ -8,6 +8,7 @@
 #if DEBUG
 import UIKit
 import EssentialFeed2
+import EssentialFeedAPI
 
 class DebuggingSceneDelegate: SceneDelegate {
     override func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

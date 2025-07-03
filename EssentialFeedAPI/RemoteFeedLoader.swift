@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import EssentialFeed2
 
 public final class RemoteFeedLoader: FeedLoader {
     private let url: URL
@@ -24,7 +25,7 @@ public final class RemoteFeedLoader: FeedLoader {
     }
     
     public func load(completion: @escaping (Result) -> Void) {
-        client.get(from: url) { [weak self] result in
+        _ = client.get(from: url) { [weak self] result in
             guard self != nil else { return }
             
             switch result {

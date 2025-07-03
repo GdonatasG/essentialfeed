@@ -5,9 +5,9 @@
 //  Created by Donatas Žitkus on 23/06/2025.
 //
 
-import Foundation
-import EssentialFeed2
 import XCTest
+import EssentialFeed2
+import EssentialFeedAPI
 
 class RemoteFeedImageDataLoaderTests: XCTestCase {
     func test_loadImageData_deliversDataOnValidHTTPResponse() {
