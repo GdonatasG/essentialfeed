@@ -7,6 +7,7 @@
 
 import Foundation
 import EssentialFeed2
+import EssentialFeed2Presentation
 
 final class FeedImagePresentationAdapter<View: FeedImageView, Image>: FeedImageCellControllerDelegate where View.Image == Image {
     private let model: FeedImage

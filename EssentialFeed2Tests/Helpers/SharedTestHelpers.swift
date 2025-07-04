@@ -5,6 +5,7 @@
 //  Created by Donatas Zitkus on 24/05/2025.
 //
 
+import Foundation
 import EssentialFeed2
 
 func anyURL() -> URL {

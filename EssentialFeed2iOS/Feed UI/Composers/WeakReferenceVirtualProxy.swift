@@ -7,6 +7,7 @@
 
 import Foundation
 import EssentialFeed2
+import EssentialFeed2Presentation
 
 final class WeakReferenceVirtualProxy<T: AnyObject> {
     private weak var object: T?

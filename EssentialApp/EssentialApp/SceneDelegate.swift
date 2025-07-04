@@ -8,8 +8,11 @@
 import UIKit
 import CoreData
 import EssentialFeed2
+import EssentialFeed2Cache
+import EssentialFeed2CacheInfrastructure
+import EssentialFeed2API
+import EssentialFeed2APIInfrastructure
 import EssentialFeed2iOS
-import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
