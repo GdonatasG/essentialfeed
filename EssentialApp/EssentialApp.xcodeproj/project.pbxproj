@@ -15,6 +15,8 @@
 		3067728A2E17F68900A8EF02 /* EssentialFeed2API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 306772882E17F68900A8EF02 /* EssentialFeed2API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3067728C2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */; };
 		3067728D2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		306E87972E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306E87962E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework */; };
+		306E87982E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 306E87962E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		30B089E52E18072200820B00 /* EssentialFeed2Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B089E42E18072200820B00 /* EssentialFeed2Cache.framework */; };
 		30B089E62E18072200820B00 /* EssentialFeed2Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30B089E42E18072200820B00 /* EssentialFeed2Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -47,6 +49,7 @@
 				3020505A2E0AE7BD00495365 /* EssentialFeed2iOS.framework in Embed Frameworks */,
 				30B089E62E18072200820B00 /* EssentialFeed2Cache.framework in Embed Frameworks */,
 				3067728D2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Embed Frameworks */,
+				306E87982E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework in Embed Frameworks */,
 				302050562E0AE7BA00495365 /* EssentialFeed2.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -62,6 +65,7 @@
 		30438F322E102F8000D8F291 /* EssentialAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		306772882E17F68900A8EF02 /* EssentialFeed2API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2APIInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		306E87962E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2CacheInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B089E42E18072200820B00 /* EssentialFeed2Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,7 @@
 				302050592E0AE7BD00495365 /* EssentialFeed2iOS.framework in Frameworks */,
 				30B089E52E18072200820B00 /* EssentialFeed2Cache.framework in Frameworks */,
 				3067728C2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Frameworks */,
+				306E87972E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework in Frameworks */,
 				302050552E0AE7BA00495365 /* EssentialFeed2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +155,7 @@
 		302050532E0AE7BA00495365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				306E87962E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework */,
 				30B089E42E18072200820B00 /* EssentialFeed2Cache.framework */,
 				3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */,
 				306772882E17F68900A8EF02 /* EssentialFeed2API.framework */,

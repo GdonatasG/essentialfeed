@@ -1,6 +1,6 @@
 //
 //  CoreDataFeedStore+LocalFeedImageDataLoader.swift
-//  EssentialFeed2Cache
+//  EssentialFeed2CacheInfrastructure
 //
 //  Created by Donatas Žitkus on 23/06/2025.
 //
@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import EssentialFeed2
+import EssentialFeed2Cache
 
 extension CoreDataFeedStore: FeedImageDataStore {
     public func insert(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
