@@ -1,6 +1,6 @@
 //
 //  FeedPresenterTests.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2PresentationTests
 //
 //  Created by Donatas Žitkus on 20/06/2025.
 //
@@ -8,6 +8,7 @@
 import Foundation
 import XCTest
 import EssentialFeed2
+import EssentialFeed2Presentation
 
 class FeedPresenterTests: XCTestCase {
     func test_title_isLocalized() {

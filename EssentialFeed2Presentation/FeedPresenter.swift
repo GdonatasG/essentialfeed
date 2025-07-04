@@ -1,11 +1,12 @@
 //
 //  FeedPresenter.swift
-//  EssentialFeed2
+//  EssentialFeed2Presentation
 //
 //  Created by Donatas Žitkus on 21/06/2025.
 //
 
 import Foundation
+import EssentialFeed2
 
 public final class FeedPresenter {
     private let feedView: FeedView

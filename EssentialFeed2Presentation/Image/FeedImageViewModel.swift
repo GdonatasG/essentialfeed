@@ -1,6 +1,6 @@
 //
 //  FeedImageViewModel.swift
-//  EssentialFeed2
+//  EssentialFeed2Presentation
 //
 //  Created by Donatas Žitkus on 21/06/2025.
 //

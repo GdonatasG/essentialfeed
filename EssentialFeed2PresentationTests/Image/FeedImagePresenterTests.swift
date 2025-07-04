@@ -1,14 +1,15 @@
 //
 //  FeedImagePresenterTests 2.swift
-//  EssentialFeed2
+//  EssentialFeed2PresentationTests
 //
 //  Created by Donatas Žitkus on 21/06/2025.
 //
 
 
 import Foundation
-import EssentialFeed2
 import XCTest
+import EssentialFeed2
+import EssentialFeed2Presentation
 
 class FeedImagePresenterTests: XCTestCase {
     func test_init_doesNotSendMessagesToView() {

@@ -66,6 +66,7 @@
 		306772882E17F68900A8EF02 /* EssentialFeed2API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2APIInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		306E87962E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2CacheInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		306E87DE2E1810DA00D09311 /* EssentialFeed2Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B089E42E18072200820B00 /* EssentialFeed2Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +156,7 @@
 		302050532E0AE7BA00495365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				306E87DE2E1810DA00D09311 /* EssentialFeed2Presentation.framework */,
 				306E87962E180BE800D09311 /* EssentialFeed2CacheInfrastructure.framework */,
 				30B089E42E18072200820B00 /* EssentialFeed2Cache.framework */,
 				3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */,

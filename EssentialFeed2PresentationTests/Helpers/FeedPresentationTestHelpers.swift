@@ -1,6 +1,6 @@
 //
 //  FeedPresentationTestHelpers.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2PresentationTests
 //
 //  Created by Donatas Žitkus on 04/07/2025.
 //
