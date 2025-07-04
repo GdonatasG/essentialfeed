@@ -1,12 +1,13 @@
 //
 //  FeedStoreSpy.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 24/05/2025.
 //
 
 import Foundation
 import EssentialFeed2
+import EssentialFeed2Cache
 
 class FeedStoreSpy: FeedStore {
     enum ReceivedMessage: Equatable {

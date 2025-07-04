@@ -1,11 +1,12 @@
 //
 //  LocalFeedLoader.swift
-//  EssentialFeed2
+//  EssentialFeed2Cache
 //
 //  Created by Donatas Zitkus on 22/05/2025.
 //
 
 import Foundation
+import EssentialFeed2
 
 public final class LocalFeedLoader: FeedLoader {
     private let store: FeedStore

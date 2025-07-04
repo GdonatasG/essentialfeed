@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import EssentialFeed2
 
 func anyURL() -> URL {
     return URL(string: "http://any-url.com")!

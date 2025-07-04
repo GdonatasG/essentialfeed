@@ -1,6 +1,6 @@
 //
 //  ManagedCache+CoreDataClass.swift
-//  EssentialFeed2
+//  EssentialFeed2Cache
 //
 //  Created by Donatas Zitkus on 31/05/2025.
 //

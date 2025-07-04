@@ -1,6 +1,6 @@
 //
 //  FeedStoreSpecs.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 29/05/2025.
 //

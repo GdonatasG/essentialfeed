@@ -1,6 +1,6 @@
 //
 //  LocalFeedItem.swift
-//  EssentialFeed2
+//  EssentialFeed2Cache
 //
 //  Created by Donatas Zitkus on 23/05/2025.
 //

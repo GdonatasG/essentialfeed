@@ -1,12 +1,13 @@
 //
 //  XCTestCase+FeedStoreSpecs.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 29/05/2025.
 //
 
-import EssentialFeed2
 import XCTest
+import EssentialFeed2
+import EssentialFeed2Cache
 
 extension FeedStoreSpecs where Self: XCTestCase {
     func expect(_ sut: FeedStore, toRetrieve expectedResult: FeedStore.RetrievalResult, file: StaticString = #filePath, line: UInt = #line) {

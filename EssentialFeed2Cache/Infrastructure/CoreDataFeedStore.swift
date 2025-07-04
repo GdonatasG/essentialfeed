@@ -1,12 +1,13 @@
 //
 //  CoreDataFeedStore.swift
-//  EssentialFeed2
+//  EssentialFeed2Cache
 //
 //  Created by Donatas Zitkus on 31/05/2025.
 //
 
 import Foundation
 import CoreData
+import EssentialFeed2
 
 public class CoreDataFeedStore: FeedStore {
     private let container: NSPersistentContainer

@@ -1,6 +1,6 @@
 //
 //  FeedImageDataStore.swift
-//  EssentialFeed2
+//  EssentialFeed2Cache
 //
 //  Created by Donatas Žitkus on 23/06/2025.
 //

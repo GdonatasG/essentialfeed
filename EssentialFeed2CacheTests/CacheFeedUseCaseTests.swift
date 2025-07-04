@@ -1,12 +1,13 @@
 //
 //  CacheFeedUseCase.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 21/05/2025.
 //
 
 import XCTest
 import EssentialFeed2
+import EssentialFeed2Cache
 
 class CacheFeedUseCaseTests: XCTestCase {
     func test_init_doesNotMessageStoreUponCreation() {

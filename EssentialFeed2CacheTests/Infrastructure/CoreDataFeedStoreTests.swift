@@ -1,13 +1,14 @@
 //
 //  CoreDataFeedStoreTests.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 31/05/2025.
 //
 
 import XCTest
-import EssentialFeed2
 import CoreData
+import EssentialFeed2
+import EssentialFeed2Cache
 
 class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {

@@ -1,12 +1,13 @@
 //
 //  ValidateFeedCacheUseCaseTests.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 24/05/2025.
 //
 
 import XCTest
 import EssentialFeed2
+import EssentialFeed2Cache
 
 class ValidateFeedCacheUseCaseTests: XCTestCase {
     

@@ -34,13 +34,6 @@
     {
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "E29C4CC52DD9B44E00AE819C",
-        "name" : "EssentialFeed2APIEndToEndTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed2.xcodeproj",
         "identifier" : "303615332E1655CA00D554B4",
         "name" : "EssentialFeed2APITests"
       }
@@ -48,8 +41,22 @@
     {
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "E207F3D82DEB563F004A2081",
-        "name" : "EssentialFeed2CacheIntegrationTests"
+        "identifier" : "E29C4CC52DD9B44E00AE819C",
+        "name" : "EssentialFeed2APIEndToEndTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "30B089AF2E18035E00820B00",
+        "name" : "EssentialFeed2CacheTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "306772682E17F23600A8EF02",
+        "name" : "EssentialFeed2APIInfrastructureTests"
       }
     },
     {
@@ -62,8 +69,8 @@
     {
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "306772682E17F23600A8EF02",
-        "name" : "EssentialFeed2APIInfrastructureTests"
+        "identifier" : "E207F3D82DEB563F004A2081",
+        "name" : "EssentialFeed2CacheIntegrationTests"
       }
     }
   ],

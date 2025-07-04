@@ -1,11 +1,12 @@
 //
 //  FeedCacheTestHelpers.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2CacheTests
 //
 //  Created by Donatas Zitkus on 24/05/2025.
 //
 
 import EssentialFeed2
+import EssentialFeed2Cache
 
 func uniqueImage() -> FeedImage {
     return FeedImage(id: UUID(), description: "any", location: "a", url: anyURL())

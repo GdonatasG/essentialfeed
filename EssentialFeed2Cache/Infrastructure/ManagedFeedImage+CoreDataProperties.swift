@@ -1,6 +1,6 @@
 //
 //  ManagedFeedImage+CoreDataProperties.swift
-//  EssentialFeed2
+//  EssentialFeed2Cache
 //
 //  Created by Donatas Žitkus on 24/06/2025.
 //
