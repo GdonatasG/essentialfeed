@@ -11,9 +11,10 @@
 		302050562E0AE7BA00495365 /* EssentialFeed2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 302050542E0AE7BA00495365 /* EssentialFeed2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		302050592E0AE7BD00495365 /* EssentialFeed2iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302050582E0AE7BD00495365 /* EssentialFeed2iOS.framework */; };
 		3020505A2E0AE7BD00495365 /* EssentialFeed2iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 302050582E0AE7BD00495365 /* EssentialFeed2iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		30A804B12E165DC400023738 /* EssentialFeedAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A804B02E165DC400023738 /* EssentialFeedAPI.framework */; };
-		30A804B22E165DC400023738 /* EssentialFeedAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30A804B02E165DC400023738 /* EssentialFeedAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		30A804B32E165E3200023738 /* EssentialFeedAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A804B02E165DC400023738 /* EssentialFeedAPI.framework */; };
+		306772892E17F68900A8EF02 /* EssentialFeed2API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306772882E17F68900A8EF02 /* EssentialFeed2API.framework */; };
+		3067728A2E17F68900A8EF02 /* EssentialFeed2API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 306772882E17F68900A8EF02 /* EssentialFeed2API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3067728C2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */; };
+		3067728D2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				30A804B22E165DC400023738 /* EssentialFeedAPI.framework in Embed Frameworks */,
+				3067728A2E17F68900A8EF02 /* EssentialFeed2API.framework in Embed Frameworks */,
 				3020505A2E0AE7BD00495365 /* EssentialFeed2iOS.framework in Embed Frameworks */,
+				3067728D2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Embed Frameworks */,
 				302050562E0AE7BA00495365 /* EssentialFeed2.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -55,7 +57,8 @@
 		302050542E0AE7BA00495365 /* EssentialFeed2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		302050582E0AE7BD00495365 /* EssentialFeed2iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30438F322E102F8000D8F291 /* EssentialAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30A804B02E165DC400023738 /* EssentialFeedAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeedAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		306772882E17F68900A8EF02 /* EssentialFeed2API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed2APIInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -94,9 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30A804B32E165E3200023738 /* EssentialFeedAPI.framework in Frameworks */,
-				30A804B12E165DC400023738 /* EssentialFeedAPI.framework in Frameworks */,
+				306772892E17F68900A8EF02 /* EssentialFeed2API.framework in Frameworks */,
 				302050592E0AE7BD00495365 /* EssentialFeed2iOS.framework in Frameworks */,
+				3067728C2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework in Frameworks */,
 				302050552E0AE7BA00495365 /* EssentialFeed2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +145,8 @@
 		302050532E0AE7BA00495365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				30A804B02E165DC400023738 /* EssentialFeedAPI.framework */,
+				3067728B2E17F68F00A8EF02 /* EssentialFeed2APIInfrastructure.framework */,
+				306772882E17F68900A8EF02 /* EssentialFeed2API.framework */,
 				302050582E0AE7BD00495365 /* EssentialFeed2iOS.framework */,
 				302050542E0AE7BA00495365 /* EssentialFeed2.framework */,
 			);

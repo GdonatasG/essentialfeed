@@ -15,19 +15,22 @@
           "containerPath" : "container:EssentialFeed2.xcodeproj",
           "identifier" : "E29C4C762DCE4A9000AE819C",
           "name" : "EssentialFeed2"
+        },
+        {
+          "containerPath" : "container:EssentialFeed2.xcodeproj",
+          "identifier" : "303615292E1655CA00D554B4",
+          "name" : "EssentialFeed2API"
+        },
+        {
+          "containerPath" : "container:EssentialFeed2.xcodeproj",
+          "identifier" : "3067725E2E17F23500A8EF02",
+          "name" : "EssentialFeed2APIInfrastructure"
         }
       ]
     },
     "testExecutionOrdering" : "random"
   },
   "testTargets" : [
-    {
-      "target" : {
-        "containerPath" : "container:EssentialFeed2.xcodeproj",
-        "identifier" : "E29C4C802DCE4A9100AE819C",
-        "name" : "EssentialFeed2Tests"
-      }
-    },
     {
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
@@ -39,7 +42,7 @@
       "target" : {
         "containerPath" : "container:EssentialFeed2.xcodeproj",
         "identifier" : "303615332E1655CA00D554B4",
-        "name" : "EssentialFeedAPITests"
+        "name" : "EssentialFeed2APITests"
       }
     },
     {
@@ -47,6 +50,20 @@
         "containerPath" : "container:EssentialFeed2.xcodeproj",
         "identifier" : "E207F3D82DEB563F004A2081",
         "name" : "EssentialFeed2CacheIntegrationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "E29C4C802DCE4A9100AE819C",
+        "name" : "EssentialFeed2Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed2.xcodeproj",
+        "identifier" : "306772682E17F23600A8EF02",
+        "name" : "EssentialFeed2APIInfrastructureTests"
       }
     }
   ],

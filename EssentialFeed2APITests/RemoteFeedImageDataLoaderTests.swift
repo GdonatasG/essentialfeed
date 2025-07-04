@@ -1,13 +1,13 @@
 //
 //  RemoteFeedImageDataLoaderTests.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2APITests
 //
 //  Created by Donatas Žitkus on 23/06/2025.
 //
 
 import XCTest
 import EssentialFeed2
-import EssentialFeedAPI
+import EssentialFeed2API
 
 class RemoteFeedImageDataLoaderTests: XCTestCase {
     func test_loadImageData_deliversDataOnValidHTTPResponse() {

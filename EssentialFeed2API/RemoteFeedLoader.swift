@@ -1,6 +1,6 @@
 //
 //  RemoteFeedLoader.swift
-//  EssentialFeed2
+//  EssentialFeed2API
 //
 //  Created by Donatas Zitkus on 10/05/2025.
 //

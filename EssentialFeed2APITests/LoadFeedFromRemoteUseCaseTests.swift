@@ -1,13 +1,13 @@
 //
 //  RemoteFeedLoaderTests.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2APITests
 //
 //  Created by Donatas Zitkus on 10/05/2025.
 //
 
 import XCTest
 import EssentialFeed2
-import EssentialFeedAPI
+import EssentialFeed2API
 
 class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL(){

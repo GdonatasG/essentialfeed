@@ -1,6 +1,6 @@
 //
 //  FeedItemsMapper.swift
-//  EssentialFeed2
+//  EssentialFeed2API
 //
 //  Created by Donatas Zitkus on 12/05/2025.
 //

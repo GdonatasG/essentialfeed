@@ -1,13 +1,13 @@
 //
 //  URLSessionHTTPClientTests.swift
-//  EssentialFeed2Tests
+//  EssentialFeed2APIInfrastructureTests
 //
 //  Created by Donatas Zitkus on 14/05/2025.
 //
 
 import XCTest
-import EssentialFeed2
-import EssentialFeedAPI
+import EssentialFeed2API
+import EssentialFeed2APIInfrastructure
 
 class URLSessionHTTPClientTests: XCTestCase {
     

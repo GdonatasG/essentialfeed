@@ -1,11 +1,12 @@
 //
 //  URLSessionHTTPClient.swift
-//  EssentialFeed2
+//  EssentialFeed2APIInfrastructure
 //
 //  Created by Donatas Zitkus on 16/05/2025.
 //
 
 import Foundation
+import EssentialFeed2API
 
 public class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
