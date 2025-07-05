@@ -360,6 +360,22 @@
 			);
 			target = 306E87B22E180F2900D09311 /* EssentialFeed2PresentationTests */;
 		};
+		308FEF7C2E19854E00204D21 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheIntegrationTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Helpers/FeedCacheTestHelpers.swift,
+			);
+			target = E207F3D82DEB563F004A2081 /* EssentialFeed2CacheIntegrationTests */;
+		};
+		308FEF7D2E19854E00204D21 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheInfrastructureTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FeedStoreSpecs.swift,
+				Helpers/FeedCacheTestHelpers.swift,
+				"XCTestCase+FeedStoreSpecs.swift",
+			);
+			target = 306E87742E180AD000D09311 /* EssentialFeed2CacheInfrastructureTests */;
+		};
 		30B089E22E1805FB00820B00 /* Exceptions for "EssentialFeed2Tests" folder in "EssentialFeed2CacheTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -440,6 +456,10 @@
 		};
 		30B089B42E18035E00820B00 /* EssentialFeed2CacheTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				308FEF7C2E19854E00204D21 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheIntegrationTests" target */,
+				308FEF7D2E19854E00204D21 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheInfrastructureTests" target */,
+			);
 			path = EssentialFeed2CacheTests;
 			sourceTree = "<group>";
 		};
