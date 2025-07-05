@@ -21,8 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .appendingPathComponent("feed-store.sqlite")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
-        
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        configureWindow()
+    }
+    
+    func configureWindow() {
         let remoteURL = URL(string: "https://my.api.mockaroo.com/feed?key=f0d1fca0")!
         let remoteClient = makeRemoteClient()
         let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: remoteClient)
@@ -43,6 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             )
         )
         window?.rootViewController = UINavigationController(rootViewController: feedViewController)
+        window?.makeKeyAndVisible()
     }
     
     func makeRemoteClient() -> HTTPClient {
