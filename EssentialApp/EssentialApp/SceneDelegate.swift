@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 fallback: localImageLoader
             )
         )
-        window?.rootViewController = feedViewController
+        window?.rootViewController = UINavigationController(rootViewController: feedViewController)
     }
     
     func makeRemoteClient() -> HTTPClient {

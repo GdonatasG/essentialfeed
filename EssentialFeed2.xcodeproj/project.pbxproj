@@ -344,22 +344,6 @@
 			);
 			target = 306772682E17F23600A8EF02 /* EssentialFeed2APIInfrastructureTests */;
 		};
-		306E87912E180B9000D09311 /* Exceptions for "EssentialFeed2CacheInfrastructure" folder in "EssentialFeed2CacheInfrastructureTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FeedStore.xcdatamodeld,
-			);
-			target = 306E87742E180AD000D09311 /* EssentialFeed2CacheInfrastructureTests */;
-		};
-		306E879A2E180C2400D09311 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheInfrastructureTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FeedStoreSpecs.swift,
-				Helpers/FeedCacheTestHelpers.swift,
-				"XCTestCase+FeedStoreSpecs.swift",
-			);
-			target = 306E87742E180AD000D09311 /* EssentialFeed2CacheInfrastructureTests */;
-		};
 		306E879E2E180C7E00D09311 /* Exceptions for "EssentialFeed2Tests" folder in "EssentialFeed2CacheInfrastructureTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -375,13 +359,6 @@
 				Helpers/XCTestCaseMemoryLeakTracking.swift,
 			);
 			target = 306E87B22E180F2900D09311 /* EssentialFeed2PresentationTests */;
-		};
-		30B089D52E18052900820B00 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheIntegrationTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Helpers/FeedCacheTestHelpers.swift,
-			);
-			target = E207F3D82DEB563F004A2081 /* EssentialFeed2CacheIntegrationTests */;
 		};
 		30B089E22E1805FB00820B00 /* Exceptions for "EssentialFeed2Tests" folder in "EssentialFeed2CacheTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -438,9 +415,6 @@
 		};
 		306E876C2E180AD000D09311 /* EssentialFeed2CacheInfrastructure */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				306E87912E180B9000D09311 /* Exceptions for "EssentialFeed2CacheInfrastructure" folder in "EssentialFeed2CacheInfrastructureTests" target */,
-			);
 			path = EssentialFeed2CacheInfrastructure;
 			sourceTree = "<group>";
 		};
@@ -466,10 +440,6 @@
 		};
 		30B089B42E18035E00820B00 /* EssentialFeed2CacheTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				30B089D52E18052900820B00 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheIntegrationTests" target */,
-				306E879A2E180C2400D09311 /* Exceptions for "EssentialFeed2CacheTests" folder in "EssentialFeed2CacheInfrastructureTests" target */,
-			);
 			path = EssentialFeed2CacheTests;
 			sourceTree = "<group>";
 		};
