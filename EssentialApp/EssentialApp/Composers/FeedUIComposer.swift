@@ -15,14 +15,19 @@ import EssentialFeed2iOS
 public final class FeedUIComposer {
     private init() {}
     
-    static func feedComposedWith(feedLoader: @escaping () -> FeedLoader.Publisher, imageLoader: FeedImageDataLoader) -> FeedViewController {
+    static func feedComposedWith(feedLoader: @escaping () -> FeedLoader.Publisher, imageLoader: @escaping (URL) -> FeedImageDataLoader.Publisher) -> FeedViewController {
         let feedController = makeFeedViewController(title: FeedPresenter.title)
         
         let loadPresentationAdapter = FeedLoaderPresentationAdapter(feedLoader: { feedLoader().dispatchOnMainQueue() })
         let loadController = feedController.loadController!
         loadController.delegate = loadPresentationAdapter
         
-        let presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader)), loadingView: WeakReferenceVirtualProxy(loadController))
+        let presenter = FeedPresenter(
+            feedView: FeedViewAdapter(
+                controller: feedController,
+                imageLoader: { imageLoader($0).dispatchOnMainQueue() }
+                ),
+            loadingView: WeakReferenceVirtualProxy(loadController))
         loadPresentationAdapter.presenter = presenter
         
         return feedController
