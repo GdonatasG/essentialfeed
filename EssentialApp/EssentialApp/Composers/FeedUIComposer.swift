@@ -1,26 +1,33 @@
 //
 //  FeedUIComposer.swift
-//  EssentialFeed2iOS
+//  EssentialApp
 //
 //  Created by Donatas Žitkus on 14/06/2025.
 //
 
 import Foundation
+import Combine
 import UIKit
 import EssentialFeed2
 import EssentialFeed2Presentation
+import EssentialFeed2iOS
 
 public final class FeedUIComposer {
     private init() {}
     
-    public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
+    static func feedComposedWith(feedLoader: @escaping () -> FeedLoader.Publisher, imageLoader: @escaping (URL) -> FeedImageDataLoader.Publisher) -> FeedViewController {
         let feedController = makeFeedViewController(title: FeedPresenter.title)
         
-        let loadPresentationAdapter = FeedLoaderPresentationAdapter(feedLoader: MainQueueDispatchDecorator(decoratee: feedLoader))
+        let loadPresentationAdapter = FeedLoaderPresentationAdapter(feedLoader: { feedLoader().dispatchOnMainQueue() })
         let loadController = feedController.loadController!
         loadController.delegate = loadPresentationAdapter
         
-        let presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader)), loadingView: WeakReferenceVirtualProxy(loadController))
+        let presenter = FeedPresenter(
+            feedView: FeedViewAdapter(
+                controller: feedController,
+                imageLoader: { imageLoader($0).dispatchOnMainQueue() }
+                ),
+            loadingView: WeakReferenceVirtualProxy(loadController))
         loadPresentationAdapter.presenter = presenter
         
         return feedController

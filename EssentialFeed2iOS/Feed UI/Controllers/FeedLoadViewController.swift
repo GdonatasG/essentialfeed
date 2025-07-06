@@ -9,16 +9,16 @@ import UIKit
 import EssentialFeed2
 import EssentialFeed2Presentation
 
-protocol FeedLoadViewControllerDelegate {
+public protocol FeedLoadViewControllerDelegate {
     func didRequestFeedLoad()
 }
 
 // TODO: merge this logic with FeedViewController (Module 5, episode 8, approx. 10:00)
-final class FeedLoadViewController: NSObject, FeedLoadingView {
+public final class FeedLoadViewController: NSObject, FeedLoadingView {
     public let mainLoadingIndicator = UIActivityIndicatorView(style: .large)
     @IBOutlet private var refreshControl: UIRefreshControl?
     
-    var delegate: FeedLoadViewControllerDelegate?
+    public var delegate: FeedLoadViewControllerDelegate?
     
     private enum TriggeredLoadType {
         case load
@@ -27,7 +27,7 @@ final class FeedLoadViewController: NSObject, FeedLoadingView {
     
     private var triggeredLoadType: TriggeredLoadType? = nil
     
-    func display(_ viewModel: FeedLoadingViewModel) {
+    public func display(_ viewModel: FeedLoadingViewModel) {
         let isLoading = viewModel.isLoading
 
         if let loadType = triggeredLoadType {
