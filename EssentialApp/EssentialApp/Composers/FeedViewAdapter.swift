@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import EssentialFeed2
 import EssentialFeed2Presentation
+import EssentialFeed2iOS
 
 final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?

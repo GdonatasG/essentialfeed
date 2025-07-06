@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    @IBOutlet var loadController: FeedLoadViewController?
+    @IBOutlet public var loadController: FeedLoadViewController?
     private var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
