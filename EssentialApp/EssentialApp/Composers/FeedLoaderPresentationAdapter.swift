@@ -1,33 +1,38 @@
 //
 //  FeedLoaderPresentationAdapter.swift
-//  EssentialFeed2iOS
+//  EssentialApp
 //
 //  Created by Donatas Žitkus on 19/06/2025.
 //
 
+import Combine
 import Foundation
 import EssentialFeed2
 import EssentialFeed2Presentation
 import EssentialFeed2iOS
 
 final class FeedLoaderPresentationAdapter: FeedLoadViewControllerDelegate {
-    private let feedLoader: FeedLoader
+    private let feedLoader: () -> FeedLoader.Publisher
+    private var cancellable: Cancellable?
     var presenter: FeedPresenter?
     
-    init(feedLoader: FeedLoader) {
+    init(feedLoader: @escaping () -> FeedLoader.Publisher) {
         self.feedLoader = feedLoader
     }
     
     func didRequestFeedLoad() {
         presenter?.didStartLoadingFeed()
         
-        feedLoader.load { [weak self] result in
-            switch result {
-            case let .success(feed):
+        cancellable = feedLoader().sink(
+            receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished: break
+                case let .failure(error):
+                    self?.presenter?.didFinishLoadingFeedWithError(with: error)
+                }
+            },
+            receiveValue: { [weak self] feed in
                 self?.presenter?.didFinishLoadingFeed(with: feed)
-            case let .failure(error):
-                self?.presenter?.didFinishLoadingFeedWithError(with: error)
-            }
-        }
+            })
     }
 }

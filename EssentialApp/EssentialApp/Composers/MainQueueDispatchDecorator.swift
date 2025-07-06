@@ -1,10 +1,11 @@
 //
 //  MainQueueDispatchDecorator.swift
-//  EssentialFeed2iOS
+//  EssentialApp
 //
 //  Created by Donatas Žitkus on 19/06/2025.
 //
 
+import Combine
 import Foundation
 import EssentialFeed2
 
@@ -21,14 +22,6 @@ final class MainQueueDispatchDecorator<T> {
         }
         
         completion()
-    }
-}
-    
-extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
-    func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        decoratee.load { [weak self] result in
-            self?.dispatch { completion(result) }
-        }
     }
 }
 

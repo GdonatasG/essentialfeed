@@ -1,6 +1,6 @@
 //
 //  FeedImagePresentationAdapter.swift
-//  EssentialFeed2iOS
+//  EssentialApp
 //
 //  Created by Donatas Žitkus on 19/06/2025.
 //
